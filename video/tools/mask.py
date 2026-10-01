@@ -22,7 +22,14 @@ PUB = os.path.join(HERE, "..", "public")
 JOBS = {
     # name: (source in public/, crop box (x0, y0, x1, y1) in source pixels or None for the whole image, rembg model)
     # Crop to one figure when the picture has several people; the largest piece of the cut-out is kept.
-    "sully": ("img/demo/sully_jackson_1845.jpg", None, "isnet-general-use"),
+    "jefferson": ("img/ch02/jefferson_peale_1800.jpg", None, "isnet-general-use"),
+    "madison": ("img/ch02/madison_stuart_1821.jpg", None, "isnet-general-use"),
+    "whitney": ("img/ch03/whitney_morse_1822.jpg", None, "isnet-general-use"),
+    "douglass": ("img/ch06/douglass_portrait.jpg", (2380, 330, 3380, 1880), "u2net_human_seg"),
+    "ruffin": ("img/ch07/thomas_ruffin.jpg", None, "isnet-general-use"),
+    "jacobs": ("img/ch08/harriet_jacobs_1894.jpg", None, "isnet-general-use"),
+    "randolph": ("img/ch10/thomas_jefferson_randolph.jpg", None, "u2net_human_seg"),
+    "calhoun": ("img/ch10/calhoun_brady_1849.jpg", None, "u2net_human_seg"),
     # "clay": ("img/clay_jouett.jpg", None, "isnet-general-use"),
     # "voters_a": ("img/gen/ch05_new_voters.png", (80, 120, 420, 850), "isnet-general-use"),
 }

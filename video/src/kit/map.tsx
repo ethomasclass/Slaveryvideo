@@ -31,6 +31,21 @@ export const PLACES = {
   boston: [3489, 1660],
   lowell: [3470, 1600],
   atlantic: [3600, 2700],
+  // Grip Tighter (fitted from lat/long against the places above; checked on the scan)
+  richmond: [2960, 2335],
+  alexandria: [2993, 2164],
+  southampton: [3000, 2445],
+  edenton: [3048, 2532],
+  savannah: [2582, 3067],
+  natchez: [1450, 3128],
+  fultonMO: [1593, 2212],
+  baltimore: [3032, 2096],
+  virginia: [2829, 2344],
+  maryland: [3016, 2136],
+  northCarolina: [2769, 2599],
+  mississippi: [1663, 2984],
+  alabama: [1975, 2972],
+  louisiana: [1369, 3197],
 } as const;
 export type Pt = readonly [number, number] | number[];
 

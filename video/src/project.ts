@@ -12,7 +12,7 @@ export const DATES = '1790 – 1860';
  * Archival pictures that flip past at the start of the channel intro (five reads best). Paths in public/.
  * Use strong, recognisable images from this video; they show in black and white.
  */
-export const INTRO_CARDS = ['img/demo/sully_jackson_1845.jpg', 'img/maps/mitchell_1836.jpg', 'img/demo/sully_jackson_1845.jpg', 'img/maps/mitchell_1836.jpg', 'img/demo/sully_jackson_1845.jpg'];
+export const INTRO_CARDS = ['img/ch01/floyd_reward_proclamation_1831_p1.jpg', 'img/ch04/coffle_passing_capitol_1815.jpg', 'img/ch03/whitney_patent_drawing_1794.jpg', 'img/ch08/five_generations_smiths_plantation_1862.jpg', 'img/ch09/confessions_title_page_1831.jpg'];
 
 /** Thumbnail portrait (split concept): source file, its pixel size, and where the head sits in source pixels. */
 export const THUMB_PORTRAIT = {
