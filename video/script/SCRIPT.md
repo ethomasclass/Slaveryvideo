@@ -1,12 +1,12 @@
 # Grip Tighter: Slavery and the Cotton South
 
-**15 Minute History** · narration script · 2,688 words · about 15:55
+**15 Minute History** · narration script · 2,700 words · about 15:44
 
 **Driving question (asked in the cold open, answered in the last chapter):** Why did the South, at the very moment it could have started letting slavery go, hold on tighter than ever?
 **Answer:** cotton. The gin turned a system many expected to fade into the engine of the most valuable crop on Earth, so enslaved people became the South's biggest store of wealth. Slavery also propped up the status of white Southerners who owned no one. When Nat Turner showed the system could be fought, the South chose to tighten its grip instead of loosening it.
 
-The narration files the voice pipeline reads are `video/script/ch01_…txt` to `ch10_…txt`. This page is the same text, with timestamps.
-Timestamps assume the Reform Era pace (~185 wpm) for chapters 1–5 and the slower heavy-chapter pace (~160 wpm) for chapters 6–10, plus about 10 seconds for the channel intro and title card after the cold open. Re-time after voicing.
+Chapter files are `script/chNN_slug.txt`; this page is rebuilt from them. `{braces}` mark a defined vocab term and `*stars*` a key idea; the voice tool strips both.
+Timestamps assume the locked pace (~185 wpm), with chapters 7, 9 and 10 voiced at the heavy settings (`HEAVY="07 09 10"`, ~165 wpm), plus ~35 seconds for the channel intro, title card and logo breaks. Re-time from `tools/render.sh` after voicing.
 
 ---
 
@@ -32,7 +32,9 @@ So here's the question I want to answer today: Why did the South, at the very mo
 
 And the answer starts with a seed.
 
-## 1:20 | Supposed to Die
+---
+
+## 1:35 | Supposed to Die
 
 To see how we got there, rewind about forty years.
 
@@ -46,33 +48,37 @@ The Constitution even set a date. Starting in 1808, Congress was allowed to ban 
 
 Hold that thought. Because that is not what happened.
 
-## 2:12 | Fifty Pounds a Day
+---
+
+## 2:27 | Fifty Pounds a Day
 
 Meanwhile, Britain is building the first big factories in the world, full of machines that spin and weave cloth faster than anyone had ever imagined. And those machines are hungry for one thing: cotton.
 
 And the American South can grow a tough kind of cotton almost anywhere. There's just one problem. It's packed with sticky green seeds. Picking them out by hand, one worker might clean about a pound of cotton a day. At that speed, cotton could never be a big business.
 
-Then, in 1793, a young Yale graduate named Eli Whitney, staying on a plantation in Georgia, builds a simple machine. You turn a crank, and a drum covered in wire teeth pulls the cotton fibers through slots too narrow for the seeds. He calls it a cotton engine. Gin, for short.
+Then, in 1793, a young Yale graduate named Eli Whitney, staying on a plantation in Georgia, builds a simple machine. You turn a crank, and a drum covered in wire teeth pulls the cotton fibers through slots too narrow for the seeds. He calls it a cotton engine. {Gin}, for short.
 
 With a gin, one worker can clean around fifty pounds a day.
 
-Now, you'd think a machine that saves labor would mean fewer enslaved workers. It did the exact opposite. Cleaning got easy, so planters wanted to grow as much cotton as they possibly could. And somebody still had to plant it, hoe it, and pick every single boll by hand.
+Now, you'd think a machine that saves labor would mean fewer enslaved workers. *It did the exact opposite.* Cleaning got easy, so planters wanted to grow as much cotton as they possibly could. And somebody still had to plant it, hoe it, and pick every single boll by hand.
 
-Cotton also wore out the soil, so planters were always hungry for new land. And they got it. The Louisiana Purchase opened the Mississippi Valley, and the Indian Removal Act of 1830 forced the Cherokee, Creek, Choctaw, Chickasaw and Seminole nations off their homelands in the Southeast. Those homelands became cotton plantations.
+Cotton also wore out the soil, so planters were always hungry for new land. And they got it. The Louisiana Purchase opened the Mississippi Valley, and the {Indian Removal Act} of 1830 forced the Cherokee, Creek, Choctaw, Chickasaw and Seminole nations off their homelands in the Southeast. Those homelands became cotton plantations.
 
 By 1860, the South grew about two-thirds of the world's cotton, and cotton was more than half of everything the United States sold overseas. It was the oil of the 1800s.
 
 And it wasn't just a Southern business. Northern banks loaned the money. Northern ships carried the bales. Northern mills spun the thread.
 
-## 3:49 | Sold South
+---
 
-So, remember 1808? The ban that was supposed to starve slavery? It actually made the people already enslaved in America more valuable.
+## 4:04 | Sold South
+
+So, remember 1808? The ban that was supposed to starve slavery? It actually made the people already enslaved in America *more valuable*.
 
 Virginia and Maryland planters had more enslaved workers than their tired tobacco fields needed. Cotton planters in Alabama, Mississippi and Louisiana couldn't get enough.
 
-So the Upper South started selling people to the Deep South. This is called the domestic slave trade. Between 1790 and 1860, roughly a million enslaved people were forced to move south and west, most of them sold. Some historians call it the Second Middle Passage.
+So the Upper South started selling people to the Deep South. This is called the {domestic slave trade}. Between 1790 and 1860, roughly a million enslaved people were forced to move south and west, most of them sold. Some historians call it the {Second Middle Passage}.
 
-Traders bought people in cities like Richmond, then marched them hundreds of miles, chained together in long lines called coffles. Or they packed them onto ships bound for New Orleans, which became the biggest slave market in the country.
+Traders bought people in cities like Richmond, then marched them hundreds of miles, chained together in long lines called {coffles}. Or they packed them onto ships bound for New Orleans, which became the biggest slave market in the country.
 
 Think about what that meant for a family. The law didn't recognize enslaved people's marriages, so nothing stopped an owner from selling a husband, a wife, or a child. Any day could be the last day you saw them.
 
@@ -82,19 +88,21 @@ To the people who owned them, enslaved people weren't only workers. They were mo
 
 By 1830, the census counted more than two million enslaved people. The institution that was supposed to die had nearly tripled.
 
-## 5:18 | The Pyramid
+---
+
+## 5:33 | The Pyramid
 
 So who ran this world? Picture the white South as a pyramid.
 
-At the very top are the planters, usually defined as people who enslaved twenty or more. They're a tiny slice of the population. But they hold a huge share of the land, a huge share of the enslaved people, and most of the political power. A handful enslaved more than a thousand people and built grand columned mansions.
+At the very top are the {planters}, usually defined as people who enslaved twenty or more. They're a tiny slice of the population. But they hold a huge share of the land, a huge share of the enslaved people, and most of the political power. A handful enslaved more than a thousand people and built grand columned mansions.
 
-Planters liked to describe themselves as fathers looking after one big family, Black and white. Historians call this paternalism. It was a story that made owning people feel acceptable. Meanwhile their wives, the plantation mistresses, did much of the work of running the household.
+Planters liked to describe themselves as fathers looking after one big family, Black and white. Historians call this {paternalism}. It was a story that made owning people feel acceptable. Meanwhile their wives, the plantation mistresses, did much of the work of running the household.
 
-Below them are the yeomen: small farmers who worked their own land with their own families. Most of them owned no one. Some hoped to buy an enslaved worker someday. Many never did.
+Below them are the {yeomen}: small farmers who worked their own land with their own families. Most of them owned no one. Some hoped to buy an enslaved worker someday. Many never did.
 
 And at the bottom are poor whites, who didn't even own land. They rented, or worked for wages, and lived on the edge.
 
-Now here's the number that should surprise you. In 1860, about three out of every four white Southern families owned no enslaved people at all.
+Now here's the number that should surprise you. In 1860, about *three out of every four* white Southern families owned no enslaved people at all.
 
 So here's the puzzle. Why would most white Southerners defend a system they didn't own a piece of?
 
@@ -102,11 +110,13 @@ Some hoped to climb the pyramid. Cotton money ran through every store and bank i
 
 And after Southampton, there was one more reason. Fear.
 
-## 6:47 | Sunup to Sundown
+---
+
+## 7:02 | Sunup to Sundown
 
 So what was life like for the people the whole pyramid stood on?
 
-On a cotton plantation, most enslaved people worked in the fields, in groups called gangs, from sunup to sundown. At harvest, even longer.
+On a cotton plantation, most enslaved people worked in the fields, in groups called {gangs}, from sunup to sundown. At harvest, even longer.
 
 At the end of every day, each person's cotton was weighed. Fall short, and you could be whipped. Hit your number, and your number might go up.
 
@@ -118,7 +128,9 @@ Some enslaved people worked in the owner's house instead. They often got better 
 
 And for an enslaved woman, being close to the owner could be the most dangerous place of all.
 
-## 8:25 | No Law Above Him
+---
+
+## 8:27 | No Law Above Him
 
 Under Southern law, an enslaved person was property. They couldn't testify in court against a white person. They couldn't legally defend themselves against their owner.
 
@@ -136,15 +148,17 @@ At her trial, her lawyers made a simple argument. Missouri law said a woman coul
 
 Celia was hanged in December 1855. She was about 19 years old.
 
-## 10:00 | A World Outside Work
+---
+
+## 9:59 | A World Outside Work
 
 So far, it might sound like enslaved people only had things done to them. But that's not the whole story. Not even close.
 
 Under all that control, enslaved people built lives of their own.
 
-The law didn't recognize their marriages, so they married anyway. They named their children after grandparents, aunts and uncles, so family ties would survive even if people were sold apart. Historian Deborah Gray White says family gave enslaved people "a world outside of the world of work." A place where a man could be a father and a woman could be a mother, not just somebody's property.
+The law didn't recognize their marriages, so they married anyway. They named their children after grandparents, aunts and uncles, so family ties would survive even if people were sold apart. One historian describes what family gave enslaved people as "a world outside of the world of work." A place where a man could be a father and a woman could be a mother, not just somebody's property.
 
-They built a faith of their own, too. White preachers on plantations loved one Bible verse in particular: "Servants, be obedient to them that are your masters." But enslaved Christians heard a different story in the Bible. Moses. Pharaoh. A God who sets his people free. They sang it: "Go down, Moses, way down in Egypt land. Tell old Pharaoh, let my people go." At night, some slipped off to secret places in the woods called hush harbors, and turned a big iron pot upside down to muffle the sound of their prayers.
+They built a faith of their own, too. White preachers on plantations loved one Bible verse in particular: "Servants, be obedient to them that are your masters." But enslaved Christians heard a different story in the Bible. Moses. Pharaoh. A God who sets his people free. They sang it: "Go down, Moses, way down in Egypt land. Tell old Pharaoh, let my people go." At night, some slipped off to secret places in the woods called {hush harbors}, and turned a big iron pot upside down to muffle the sound of their prayers.
 
 Resistance came in everyday forms, too. Working slowly. Breaking tools. Faking sickness. Running away, for a few days or for good. Men ran more often. Women usually had children they couldn't leave behind, so many of them resisted in ways that kept them close.
 
@@ -154,7 +168,9 @@ And very rarely, resistance became open rebellion. Most plots were discovered be
 
 Nat Turner's actually happened.
 
-## 12:08 | Southampton
+---
+
+## 11:49 | Southampton
 
 So let's go back to Southampton County.
 
@@ -172,23 +188,25 @@ Nat Turner was hanged on November 11th, 1831. Virginia hanged others too, and so
 
 He fought a system that was violent every single day. His rebellion also killed children. Historians still wrestle with how to hold both of those facts at once. You probably will too.
 
-## 13:54 | Grip Tighter
+---
+
+## 13:32 | Grip Tighter
 
 Now the South had to decide what Southampton meant. Most white Southerners blamed outsiders: Northern abolitionist newspapers, pamphlets smuggled in on ships.
 
-But in Virginia, some lawmakers said what others wouldn't. Maybe the problem wasn't pamphlets. Maybe it was slavery. In January 1832, Virginia's lawmakers spent two weeks debating it. Thomas Jefferson's own grandson proposed a plan to gradually end slavery in Virginia.
+But in Virginia, some lawmakers said what others wouldn't. Maybe the problem wasn't pamphlets. Maybe it was slavery. In January 1832, Virginia's lawmakers spent two weeks debating it. Thomas Jefferson's own grandson proposed {gradual emancipation}, a plan to end slavery in Virginia slowly, over many years.
 
 It lost, 73 to 58.
 
-And then the South went the other way. Virginia banned Black preachers from holding meetings. States across the South tightened their slave codes: curfews, passes to travel, bans on gatherings, and laws making it a crime to teach enslaved people to read. A few years later, South Carolina's John C. Calhoun stood up in the United States Senate and called slavery not a necessary evil, but "a positive good."
+And then the South went the other way. Virginia banned Black preachers from holding meetings. States across the South tightened their {slave codes}, the laws that controlled enslaved people's lives: curfews, passes to travel, bans on gatherings, and laws making it a crime to teach enslaved people to read. A few years later, South Carolina's John C. Calhoun stood up in the United States Senate and called slavery not a necessary evil, but "a positive good."
 
 So, back to our question. Why did the South, at the very moment it could have started letting slavery go, hold on tighter than ever?
 
-Go back to that seed. In 1790, slavery looked like it might fade. Then the cotton gin made enslaved people the engine of the most valuable crop on Earth. By 1860, the four million people enslaved in America were counted as property worth more than all the country's railroads and factories combined. Letting go meant giving up the biggest pile of wealth in the country.
+Go back to that seed. In 1790, slavery looked like it might fade. Then the cotton gin made enslaved people the engine of the most valuable crop on Earth. By 1860, the four million people enslaved in America were counted as property worth *more than all the country's railroads and factories combined*. Letting go meant giving up the biggest pile of wealth in the country.
 
 And it wasn't only money. Slavery held up the whole pyramid. It told even the poorest white farmer who he was.
 
-So when Nat Turner showed that the system could be fought, the South had a choice. Loosen its grip, or tighten it. It tightened. More laws. More patrols. More fear.
+So when Nat Turner showed that the system could be fought, the South had a choice. Loosen its grip, or tighten it. *It tightened.* More laws. More patrols. More fear.
 
 In February 1831, Nat Turner looked up at a darkened sky and saw a sign. That August, the rest of the South saw one too. They just read it differently.
 
@@ -198,15 +216,16 @@ And the tighter the South held on, the closer the whole country came to tearing 
 
 ## Production notes
 
+- **Setting up the project:** `scripts/new_project.sh video Grip_Tighter` copies the template's placeholder `script/ch01_cold_open.txt` over the real one. Run it, then `git checkout -- video/script` to restore these files before `tools/fake_voice.py --all`.
 - **Tone: no humor anywhere.** This video drops the channel's usual wry asides. Chapters 1–5 can keep the normal pace and the map and counter motion. Even there, use no onomatopoeia, no punch-in jokes and no handwritten quips: handwritten notes only label things ("1 lb / day", "≈ 50 lb / day", "3 in 4 owned no one").
-- **Heavy chapters:** 6–10, plus the retaliation lines in chapter 1. Use the style guide's heavy mode: teal lines only, no orange boxes or coral tint, slower voice (the `ch06/ch10/ch11` settings in Reform Era's `voice_all.sh`). Follow the imagery rule: show empty cabins, the cotton scale and shackles as objects, not suffering bodies.
+- **Heavy chapters:** 6–10 visually, plus the retaliation lines in chapter 1: teal lines only, no orange boxes or coral tint, a grave music cue or near-silence. Voice chapters 7, 9 and 10 at the heavy settings (`HEAVY="07 09 10" tools/voice_all.sh`); 6 and 8 at the normal pace keep the runtime near 15:30. Add 06 and 08 to `HEAVY` if they feel rushed (about +30 s). Follow the imagery rule: show empty cabins, the cotton scale and shackles as objects, not suffering bodies.
 - **Callbacks to land visually:**
   - **The seed:** ch01 "the answer starts with a seed" → ch03 (the gin pulling seeds from fiber) → ch10 "Go back to that seed."
   - **The sign:** ch01 eclipse → ch09 "he took it as the signal" → ch10 "They just read it differently." Reuse the same eclipse shot each time.
   - **"Hold that thought":** 1808 in ch02 → ch04 "remember 1808?"
   - **The pyramid:** ch05 → ch06 "the people the whole pyramid stood on" → ch10 "Slavery held up the whole pyramid."
   - **Fear:** ch05 "one more reason. Fear." → ch10 "More fear."
-- **Running counter** (from the lecture's data slide). Keep it on screen in a corner and tick it up as the years advance:
+- **Running counter** (from the lecture's data slide; on screen only, since the template's `number_words()` misreads seven-digit numbers like 2,009,043). Keep it on screen in a corner and tick it up as the years advance:
   - ch02, 1790: 697,681
   - ch04, 1830: 2,009,043
   - ch10, 1860: 3,953,731
@@ -220,6 +239,7 @@ And the tighter the South held on, the closer the whole country came to tearing 
 - **Text cards (all public domain):**
   - Ruffin's "absolute" sentence (*State v. Mann*).
   - Harriett Hill's words, exactly as transcribed (the narrator paraphrases; the card shows the original).
+  - "A world outside of the world of work", attributed on screen only as "a historian" (the skill's no-historian-names rule).
   - Ephesians 6:5.
   - "Go Down, Moses."
   - Turner's "white spirits and black spirits" vision.
@@ -245,9 +265,21 @@ And the tighter the South held on, the closer the whole country came to tearing 
 - Gabriel (1800) and Denmark Vesey (1822) by name, cut for time. Easy to restore at the end of chapter 8.
 - Thomas Dew, Whitney's patent fights, and the July 4th start date Turner first planned.
 
+- **Vocab cards** (highlighter title + definition bar; marked `{braces}` where defined):
+  - ch03: gin, Indian Removal Act
+  - ch04: domestic slave trade, Second Middle Passage, coffles
+  - ch05: planters, yeomen, paternalism
+  - ch06: gangs
+  - ch08: hush harbors
+  - ch10: gradual emancipation, slave codes
+- **Key ideas** (marked `*stars*`): "It did the exact opposite" (ch03), "more valuable" (ch04), "three out of every four" (ch05), "more than all the country's railroads and factories combined" and "It tightened" (ch10).
+- **Cold open:** the skill prefers opening on an artifact. This one opens on the February 1831 eclipse because that becomes Turner's "sign" and the closing callback. If you want an artifact instead, open on the 1831 title page of *The Confessions of Nat Turner* and move the eclipse into the second paragraph.
+
 ## Pronunciation (for ElevenLabs)
 
-| Word | Say |
+Respellings for `PRONOUNCE` in `tools/voice.py` (each stays one word, so the timing alignment holds). Years and numbers are spelled out by `number_words()` automatically. Voice `script/tests/pronunciation.txt` and listen before voicing the chapters.
+
+| Word | Say it |
 |---|---|
 | Southampton | south-HAMP-tun |
 | Celia | SEEL-yuh |
@@ -259,28 +291,6 @@ And the tighter the South held on, the closer the whole country came to tearing 
 | coffles | KAW-fulz |
 | yeomen | YO-men |
 | paternalism | puh-TER-nuh-liz-um |
-
-Years and numbers for `PRONOUNCE` in `tools/voice.py`:
-
-| Text | Say |
-|---|---|
-| 1790 | seventeen ninety |
-| 1793 | seventeen ninety-three |
-| 1800 | eighteen hundred |
-| 1800s | eighteen hundreds |
-| 1808 | eighteen oh-eight |
-| January 1st, 1808 | January first, eighteen oh-eight |
-| 1830 | eighteen thirty |
-| 1831 | eighteen thirty-one |
-| 1832 | eighteen thirty-two |
-| 1835 | eighteen thirty-five |
-| 1842 | eighteen forty-two |
-| 1850 | eighteen fifty |
-| 1855 | eighteen fifty-five |
-| 1860 | eighteen sixty |
-| 1930s | nineteen-thirties |
-| 700,000 | seven hundred thousand |
-| 73 to 58 | seventy-three to fifty-eight |
 
 ## Fact-check flags
 
@@ -294,7 +304,7 @@ Years and numbers for `PRONOUNCE` in `tools/voice.py`:
 - **Cotton figures:** the U.S. share of world cotton around 1860 is given as two-thirds to three-quarters depending on the source; the script uses two-thirds. Cotton was about 57–61% of U.S. exports by value in 1860. Gin output (≈50 lb/day vs. ≈1 lb by hand) is the standard approximation.
 - **"Worth more than all the railroads and factories combined":** about $3.5 billion in 1860 (Deyle; Blight).
 - **3 in 4 white families owned no one (1860):** matches the lecture's chart (76.1% non-slaveholders). The share varied a lot by state: nearly half of white families enslaved people in Mississippi and South Carolina, far fewer in the Upper South.
-- **Deborah Gray White quote:** taken from the lecture slide. Confirm the wording against the original interview before putting it on a card. (The slide has her name reversed, as "Deborah White Gray.")
+- **"A world outside of the world of work":** from Deborah Gray White (the lecture slide reverses her name as "Deborah White Gray"). Per the skill, the narration says "one historian" and doesn't name her. Confirm the wording against the original interview before putting it on a card.
 - **Celia:** born about 1836, so "about 19" when executed on December 21, 1855. She had two children while enslaved by Newsom; who fathered them is uncertain (Newsom, or George, an enslaved man she was involved with), so the narration says only "She had children." The defense's argument rested on the 1845 Missouri statute covering "any woman."
 - **Ruffin:** *State v. Mann* was argued in the December 1829 term and reported in 1830, so the script says "In 1830."
 - **Douglass:** Hugh Auld's words in the *Narrative*: learning "would forever unfit him to be a slave." The script paraphrases.
@@ -309,7 +319,7 @@ Years and numbers for `PRONOUNCE` in `tools/voice.py`:
 | South in 1830: poor whites, plain farmers, planter elite | ch05 |
 | Food, clothing, shelter, house slaves, field slaves | ch06 |
 | Black women & medicine (Vox clip) | kept out; separate class segment |
-| Family (Harriett Hill, Deborah Gray White) | ch04 (Hill), ch08 (White) |
+| Family (Harriett Hill, Deborah Gray White) | ch04 (Hill), ch08 (White's quote, unnamed) |
 | Community, religion | ch08 |
 | Punishments, sexual assault | ch07 (restrained) |
 | Celia | ch07 |
