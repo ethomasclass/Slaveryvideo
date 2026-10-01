@@ -10,7 +10,7 @@ import {Arrow, Highlight, Loop, Note, Tag, useGFrame, usePal} from '../kit/Kit';
 import {DarkPaper, Sfx, WRITE} from '../kit/common';
 import {type Cam, MapScene, Pin, PLACES, type Pt, Region, Route, smooth} from '../kit/map';
 import {Bars} from '../kit/charts';
-import {Counter, Gen, sizeOf, Underline} from '../kit/gt';
+import {Counter, Gen, sizeOf} from '../kit/gt';
 import {ChapterShell, chapterFrames, CropCard, Definition, LEAD, makeTimeline, type Narration, Photo, PhotoCard, Quote, type TL, useScene} from '../kit/shell';
 import {ENSLAVED, TRADE_BY_DECADE} from '../data/charts';
 import {HeldNote} from './Ch02';
@@ -19,7 +19,6 @@ const N = words as Narration;
 export const CH04_FRAMES = chapterFrames(N, LEAD);
 
 const MAPTAG = 'Samuel Augustus Mitchell, Map of the United States, 1836 · Library of Congress';
-const ORANGE = '#FF9F1C';
 
 /** "Remember 1808?" The card from chapter 2, its expectation crossed out. */
 const Remember: React.FC<{t: TL}> = ({t}) => {
@@ -60,11 +59,11 @@ const Surplus: React.FC<{t: TL}> = ({t}) => {
             <Note text="Virginia & Maryland" x={vx - 120} y={vy - 170} size={50} rot={-3} at={t.at('Virginia and Maryland') - 2} />
             <Note text="more enslaved workers" x={vx + 40} y={vy + 110} size={42} rot={-3} at={t.at('more enslaved') - 2} color="#ffffff" />
             <Note text="than tired fields needed" x={vx + 60} y={vy + 190} size={42} rot={-3} at={t.at('tired tobacco') - 2} color="#ffffff" />
-            <Note text="Alabama" x={ax + 20} y={ay - 90} size={46} rot={-3} at={t.at('Alabama') - 2} />
+            <Note text="Alabama" x={ax - 40} y={ay + 20} size={46} rot={-3} at={t.at('Alabama') - 2} />
             <Note text="Mississippi" x={mx - 200} y={my - 110} size={46} rot={-3} at={t.at('Mississippi') - 2} />
             <Note text="Louisiana" x={lx - 130} y={ly + 10} size={46} rot={-3} at={t.at('Louisiana') - 2} />
-            <Note text="couldn't get enough" x={ax - 40} y={ay + 170} size={50} rot={-3} at={t.at("couldn't get") - 2} color="#ffffff" />
-            <Arrow x1={vx - 60} y1={vy + 120} x2={ax + 120} y2={ay - 10} bow={60} width={7} at={t.at('selling people') - 2} dur={10} />
+            <Note text="couldn't get enough" x={ax + 60} y={ay + 150} size={50} rot={-3} at={t.at("couldn't get") - 2} color="#ffffff" />
+            <Arrow x1={vx - 120} y1={vy + 100} x2={ax + 70} y2={ay - 70} bow={60} width={7} at={t.at('selling people') - 2} dur={10} />
             <Note text="sold south" x={vx - 520} y={vy + 40} size={54} rot={-3} at={t.at('selling people') - 2} />
             <Tag text={MAPTAG} />
           </>
@@ -217,9 +216,9 @@ const Families: React.FC<{t: TL}> = ({t}) => (
 const Hill: React.FC<{t: TL}> = ({t}) => (
   <AbsoluteFill>
     <DarkPaper />
-    <Note text="Harriett Hill, interviewed in the 1930s" x={160} y={110} size={50} rot={-2} at={t.at('Harriett Hill') - 2} color="#ffffff" />
-    <Note text="sold away from her mother in Georgia, at age three" x={180} y={210} size={46} rot={-2} at={t.at('remembered') - 2} />
-    <Quote text="It lack selling a calf from the cow. Exactly, but we are human beings and ought to be better than do sich." at={t.at('She said it') - 2} x={160} y={400} w={1560} size={60}
+    <Note text="Harriett Hill, interviewed in the 1930s" x={160} y={180} size={50} rot={-2} at={t.at('Harriett Hill') - 2} color="#ffffff" />
+    <Note text="sold away from her mother in Georgia, at age three" x={180} y={280} size={46} rot={-2} at={t.at('remembered') - 2} />
+    <Quote text="It lack selling a calf from the cow. Exactly, but we are human beings and ought to be better than do sich." at={t.at('She said it') - 2} x={160} y={470} w={1560} size={66}
       who="Harriett Hill, interviewed 1930s · Federal Writers' Project" />
   </AbsoluteFill>
 );

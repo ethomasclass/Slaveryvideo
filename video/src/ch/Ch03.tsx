@@ -185,7 +185,7 @@ const RIVER: Pt[] = [[1595, 2150], [1620, 2300], [1640, 2430], [1620, 2600], [15
 const Land: React.FC<{t: TL}> = ({t}) => {
   const keys: Cam[] = [
     {f: t.at('Cotton also') - 2, x: 2100, y: 2800, s: 0.42},
-    {f: t.at('Louisiana Purchase'), x: 1900, y: 2750, s: 0.5},
+    {f: t.at('Louisiana Purchase'), x: 1850, y: 2750, s: 0.62},
   ];
   return (
     <MapScene keys={keys} dim={0.2} svg={() => <Route pts={RIVER} at={t.at('Mississippi Valley') - 2} dur={20} width={16} />}>
@@ -194,8 +194,8 @@ const Land: React.FC<{t: TL}> = ({t}) => {
         const [mx, my] = S([1620, 2600]);
         return (
           <>
-            <Note text="cotton wore out the soil, too" x={110} y={90} size={54} rot={-3} at={t.at('wore out') - 4} color="#ffffff" />
-            <Note text="→ always hungry for new land" x={150} y={200} size={54} rot={-3} at={t.at('hungry for new') - 2} />
+            <Note text="cotton wore out the soil, too" x={1000} y={90} size={54} rot={-3} at={t.at('wore out') - 4} color="#ffffff" />
+            <Note text="→ always hungry for new land" x={1040} y={200} size={54} rot={-3} at={t.at('hungry for new') - 2} />
             <Arrow x1={lx - 30} y1={ly} x2={lx - 330} y2={ly - 40} bow={-20} at={t.at('Louisiana Purchase') + 2} />
             <Note text="Louisiana Purchase, 1803" x={lx - 600} y={ly + 30} size={46} rot={-3} at={t.at('Louisiana Purchase') - 2} />
             <Note text="the Mississippi Valley" x={mx + 50} y={my + 10} size={50} rot={-3} at={t.at('Mississippi Valley') - 2} />
