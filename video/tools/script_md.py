@@ -23,7 +23,7 @@ HEAD = """# Grip Tighter: Slavery and the Cotton South
 **Answer:** cotton. The gin turned a system many expected to fade into the engine of America's most valuable export, so enslaved people became the South's biggest store of wealth. Slavery also propped up the status of white Southerners who owned no one. When Nat Turner showed the system could be fought, the South chose to tighten its grip instead of loosening it.
 
 Chapter files are `script/chNN_slug.txt`; this page is rebuilt from them (`python3 tools/script_md.py`). `{{braces}}` mark a defined vocab term and `*stars*` a key idea; the voice tool strips both.
-Timestamps come from the voiced narration (chapters 7, 9 and 10 at the heavy settings, `HEAVY="07 09 10"`), plus ~35 seconds for the channel intro, title card and logo breaks. Final times come from `tools/render.sh`.
+Timestamps come from the voiced narration (ElevenLabs v3 at this video's A/B-tested pace, ~168 wpm; chapters 7, 9 and 10 slower, `HEAVY="07 09 10"`), plus ~35 seconds for the channel intro, title card and logo breaks. Final times come from `tools/render.sh`.
 
 ---
 
