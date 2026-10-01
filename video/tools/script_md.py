@@ -23,7 +23,7 @@ HEAD = """# Grip Tighter: Slavery and the Cotton South
 **Answer:** cotton. The gin turned a system many expected to fade into the engine of America's most valuable export, so enslaved people became the South's biggest store of wealth. Slavery also propped up the status of white Southerners who owned no one. When Nat Turner showed the system could be fought, the South chose to tighten its grip instead of loosening it.
 
 Chapter files are `script/chNN_slug.txt`; this page is rebuilt from them (`python3 tools/script_md.py`). `{{braces}}` mark a defined vocab term and `*stars*` a key idea; the voice tool strips both.
-Timestamps assume the locked pace (~185 wpm), with chapters 7, 9 and 10 voiced at the heavy settings (`HEAVY="07 09 10"`, ~165 wpm), plus ~35 seconds for the channel intro, title card and logo breaks. Re-time from `tools/render.sh` after voicing.
+Timestamps come from the voiced narration (chapters 7, 9 and 10 at the heavy settings, `HEAVY="07 09 10"`), plus ~35 seconds for the channel intro, title card and logo breaks. Final times come from `tools/render.sh`.
 
 ---
 
@@ -38,7 +38,13 @@ for f in files:
     n = int(os.path.basename(f)[2:4])
     text = open(f).read().strip()
     body.append(f"## {int(t // 60)}:{int(t % 60):02d} | {TITLES.get(n, f'Chapter {n}')}\n\n{text}\n")
-    t += words(text) / (165 if n in HEAVY else 185) * 60
+    wav = os.path.join(HERE, "..", "public", "audio", os.path.basename(f)[:-4] + ".wav")
+    if os.path.exists(wav):                       # voiced: use the real length
+        import wave
+        with wave.open(wav) as w:
+            t += w.getnframes() / w.getframerate()
+    else:
+        t += words(text) / (165 if n in HEAVY else 185) * 60
     if n == 1:
         t += 25
 t += 10

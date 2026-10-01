@@ -1,12 +1,12 @@
 # Grip Tighter: Slavery and the Cotton South
 
-**15 Minute History** · narration script · 2,760 words · about 16:05
+**15 Minute History** · narration script · 2,760 words · about 15:11
 
 **Driving question (asked in the cold open, answered in the last chapter):** Why did the South, at the very moment it could have started letting slavery go, hold on tighter than ever?
 **Answer:** cotton. The gin turned a system many expected to fade into the engine of America's most valuable export, so enslaved people became the South's biggest store of wealth. Slavery also propped up the status of white Southerners who owned no one. When Nat Turner showed the system could be fought, the South chose to tighten its grip instead of loosening it.
 
 Chapter files are `script/chNN_slug.txt`; this page is rebuilt from them (`python3 tools/script_md.py`). `{braces}` mark a defined vocab term and `*stars*` a key idea; the voice tool strips both.
-Timestamps assume the locked pace (~185 wpm), with chapters 7, 9 and 10 voiced at the heavy settings (`HEAVY="07 09 10"`, ~165 wpm), plus ~35 seconds for the channel intro, title card and logo breaks. Re-time from `tools/render.sh` after voicing.
+Timestamps come from the voiced narration (chapters 7, 9 and 10 at the heavy settings, `HEAVY="07 09 10"`), plus ~35 seconds for the channel intro, title card and logo breaks. Final times come from `tools/render.sh`.
 
 ---
 
@@ -32,7 +32,7 @@ And the answer starts with a seed.
 
 ---
 
-## 1:21 | Supposed to Die
+## 1:22 | Supposed to Die
 
 To see how we got there, rewind about forty years.
 
@@ -68,7 +68,7 @@ And it wasn't just a Southern business. Northern banks loaned the money. Norther
 
 ---
 
-## 3:57 | Sold South
+## 3:54 | Sold South
 
 So, remember 1808? The ban that was supposed to starve slavery? It actually made the people already enslaved in America *more valuable*.
 
@@ -88,7 +88,7 @@ By 1830, the census counted more than two million enslaved people. The instituti
 
 ---
 
-## 5:25 | The Pyramid
+## 5:17 | The Pyramid
 
 So who ran this world? Start with who lived in it. In 1860, about *one out of every three* people in the slave states was enslaved.
 
@@ -112,7 +112,7 @@ And after Southampton, there was one more reason. Fear.
 
 ---
 
-## 7:05 | Sunup to Sundown
+## 6:50 | Sunup to Sundown
 
 So what was life like for the people the whole pyramid stood on?
 
@@ -130,7 +130,7 @@ And for an enslaved woman, being close to the owner could be the most dangerous 
 
 ---
 
-## 8:32 | No Law Above Him
+## 8:05 | No Law Above Him
 
 Under Southern law, an enslaved person was property. They couldn't testify in court against a white person. They couldn't legally defend themselves against their owner.
 
@@ -150,7 +150,7 @@ Celia was hanged in December 1855. She was about 19 years old.
 
 ---
 
-## 10:09 | A World Outside Work
+## 9:35 | A World Outside Work
 
 So far, it might sound like enslaved people only had things done to them. But that's not the whole story. Not even close.
 
@@ -170,7 +170,7 @@ Nat Turner's was the deadliest one that actually happened.
 
 ---
 
-## 12:01 | Southampton
+## 11:20 | Southampton
 
 So let's go back to Southampton County.
 
@@ -190,7 +190,7 @@ He fought a system that was violent every single day. His rebellion also killed 
 
 ---
 
-## 13:50 | Grip Tighter
+## 12:58 | Grip Tighter
 
 Now the South had to decide what Southampton meant. Most white Southerners blamed outsiders: Northern abolitionist newspapers, pamphlets smuggled in on ships.
 
