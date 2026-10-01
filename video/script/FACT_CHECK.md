@@ -59,7 +59,7 @@ Every date, number, quote, name and causal claim in the narration was checked ag
 | About fifty pounds a day with a gin | ✓ | "…from fifty pounds in a day" | NPS |
 | The gin increased demand for enslaved labor | ✓ | Georgia's cotton went from 2 million lb (~1791) to 48 million lb (1801). | NPS; NGE |
 | ✎ "after the Indian Removal Act of 1830, the United States forced" the five nations off | ≈ | The Act (May 28, 1830) authorized removal treaties; the forcing came through coerced treaties and the army (~50,000 removed by 1837). | [National Archives Prologue](https://prologue.blogs.archives.gov/2017/03/16/on-exhibit-the-indian-removal-act/); [LoC guide](https://guides.loc.gov/indian-removal-act) |
-| By 1860, about two-thirds of the world's cotton | ✓ | OpenStax: two-thirds of world production. Beckert: 77% of Britain's cotton came from the U.S. in the late 1850s. Two-thirds is the conservative figure. | OpenStax U.S. History 12.1; Beckert |
+| ✎ By 1860, "three out of every four pounds of cotton in Britain's mills came from the American South" | ✓ | Beckert: 77% of the 800 million lb Britain consumed in the late 1850s. Ellison: about 80% of 1860 imports. This replaces "two-thirds of the world's cotton," which has no solid primary source (figures from 2/3 to 80% circulate). | [Beckert, *AHR* 2004](https://dash.harvard.edu/bitstream/handle/1/3207344/Beckert_EmancipationEmpire.pdf?sequence=2); Olmstead & Rhode (2018) |
 | More than half of U.S. exports | ✓ | 1860 raw cotton exports $191.8M, ~61% of domestic exports (~57% counting re-exports) | *Historical Statistics of the U.S.* Ee; Beckert |
 | Northern banks, ships, mills | ≈ | New York financed and brokered the trade. Most bales went straight to Liverpool, and most were spun in Britain. | [Columbia University Libraries](https://exhibitions.library.columbia.edu/exhibits/show/nyccc/crisis/cotton) |
 
@@ -84,7 +84,8 @@ Every date, number, quote, name and causal claim in the narration was checked ag
 
 | Claim | Verdict | Evidence | Source |
 |---|---|---|---|
-| Planters = 20 or more enslaved | ✓ | The standard cutoff. ~46,300 holdings had 20+ in 1860. | [National Humanities Center](https://nationalhumanitiescenter.org/pds/maai/enslavement/text3/text3read.htm) |
+| "About one out of every three people in the slave states was enslaved" (1860) | ✓ | 3,950,511 of 12,240,293 = 32% | Census WP56 state tables; 1860 *Population* p. vii |
+| Planters = 20 or more enslaved | ✓ | The standard cutoff. 47,571 holdings had 20+ in 1860 (Arkansas corrected). | [National Humanities Center](https://nationalhumanitiescenter.org/pds/maai/enslavement/text3/text3read.htm) |
 | A tiny slice of the population | ✓ | ~3% of white families, under 1% of Southerners | NHC; State Dept. *Outline of U.S. History* |
 | Huge share of land and enslaved people | ✓ | Held about half of all enslaved people | OpenStax 12.3 |
 | ✎ "far more than their share of political power" | ≈ | Slaveholders held most legislative seats; planters a majority only in SC (55%) and nearly in MS (49.5%). | Wooster, *The People in Power* |
@@ -92,7 +93,7 @@ Every date, number, quote, name and causal claim in the narration was checked ag
 | Paternalism | ✓ | — | Genovese, *Roll, Jordan, Roll* (1974) |
 | ✎ Mistresses ran the household, directing enslaved women who did most of the work | ✓ | — | Clinton, *The Plantation Mistress* (1982); Glymph, *Out of the House of Bondage* (2008) |
 | Yeomen; poor whites | ✓ | — | OpenStax 12.3 |
-| ✎ "three out of every four white families in the slave states owned no enslaved people" | ✓ | ~25–26% of white families in the 15 slave states held slaves (≈31% in the 11 Confederate states; MS 49%, SC 46%, DE 3%). | [Weber State compilation of 1860 census](https://faculty.weber.edu/kmackay/selected_statistics_on_slavery_i.htm); *Outline of U.S. History* |
+| ✎ "three out of every four white families in the slave states owned no enslaved people" | ✓ | 393,967 slaveholders among 1,515,605 free families = 26% (74% held no one). That uses the census tables with the misprinted Arkansas row corrected. ≈31% in the 11 Confederate states; MS 49%, SC 46%, DE 3%. | [Weber State compilation of 1860 census](https://faculty.weber.edu/kmackay/selected_statistics_on_slavery_i.htm); *Outline of U.S. History* |
 | ✎ Reasons non-slaveholders defended slavery; "for many, the biggest reason was status" | ≈ (interpretation) | Gov. Joseph E. Brown (GA), Dec 7, 1860: poor whites "are in no sense placed down upon a level with the negro." | [Brown letter](https://civilwarcauses-org.jfepperson.org/jbrown.htm) |
 
 ## ch06 · Sunup to Sundown
@@ -167,7 +168,7 @@ Every date, number, quote, name and causal claim in the narration was checked ag
 | ✎ Tightened codes; "more laws against teaching enslaved people to read" | ≈ | Several anti-literacy laws came *before* Turner: GA 1829, NC and LA 1830, VA April 7, 1831. After: AL 1832, GA 1833, SC 1834. | Encyclopedia Virginia primary doc (Apr 7, 1831) |
 | Calhoun, "a positive good" | ✓ | Feb 6, 1837: "instead of an evil, a good—a positive good." "Necessary evil" is the older view, not his words. | [Teaching American History](https://teachingamericanhistory.org/document/speech-on-abolition-petitions-2/) |
 | ✎ "America's most valuable export" | ✓ | Replaces "most valuable crop on Earth," which couldn't be supported. | see ch03 |
-| Four million enslaved; worth more than all railroads and factories combined | ✓ | Blight: ~$3.5 billion in 1860, "more than all of America's manufacturing, all of the railroads… put together." | [Blight, Yale HIST 119, Lecture 2](https://oyc.yale.edu/history/hist-119/lecture-2) |
+| Four million enslaved; worth more than all railroads and factories combined | ✓ | HSUS Bb213: $3.06 billion; Blight: ~$3.5 billion. Railroad construction cost $1.13 billion; manufacturing capital $1.01 billion (1860 census). Either way it's 1.4–1.6 times the two combined. | [HSUS Bb209–214](https://hsus.cambridge.org/HSUSWeb/toc/treeTablePathIdBb209-214.html); [Blight, Yale HIST 119](https://oyc.yale.edu/history/hist-119/lecture-2); 1860 census *Statistics* p. 323, *Manufactures* p. 729 |
 | More laws, more patrols | ✓ | Virginia went "the opposite direction, beefing up slave patrols and militia" | American Heritage (2006); Hadden, *Slave Patrols* (2001) |
 
 ## Optional additions found during the check

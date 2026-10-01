@@ -3,7 +3,7 @@ import React from 'react';
 import {AbsoluteFill, Sequence} from 'remotion';
 import {Bars, CountUp, HBars, Pie, SplitBar} from './kit/charts';
 import {DarkPaper, Finish, Highlight, Note, Tag} from './kit/look';
-import {COTTON_BALES_K, ENSLAVED, EXPORTS_1860, SLAVE_STATES_1860, VALUE_1860, WHITE_FAMILIES_1860} from './data/charts';
+import {COTTON_BALES_K, ENSLAVED, EXPORTS_1860, SLAVE_STATES_1860, TRADE_BY_DECADE, VALUE_1860, WHITE_FAMILIES_1860} from './data/charts';
 
 export const CHART_SECS = 6;
 const F = CHART_SECS * 30;
@@ -24,7 +24,7 @@ const PieWho: React.FC = () => {
   const s = SLAVE_STATES_1860;
   const t = s.enslaved + s.freeBlack + s.white;
   return (
-    <Frame title="WHO LIVED IN THE SLAVE STATES, 1860" tag="U.S. Census, 1860 · 15 slave states">
+    <Frame title="WHO LIVED IN THE SLAVE STATES, 1860" tag="U.S. Census, 1860 · population of the 15 slave states">
       <Pie cx={760} cy={600} r={300} at={4} seed={3} slices={[
         {label: 'enslaved', value: s.enslaved, subject: true, pct: pct(s.enslaved, t), note: 'about 1 in 3 people', labelAt: [1140, 470]},
         {label: 'free Black', value: s.freeBlack, pct: pct(s.freeBlack, t), labelAt: [1140, 700]},
@@ -38,7 +38,7 @@ const PieFamilies: React.FC = () => {
   const s = WHITE_FAMILIES_1860;
   const t = s.none + s.small + s.planters;
   return (
-    <Frame title="WHITE FAMILIES, 1860" tag="U.S. Census, 1860 · slaveholders by number held">
+    <Frame title="WHITE FAMILIES, 1860" tag="U.S. Census, 1860 · families and slaveholders, 15 slave states">
       <Pie cx={760} cy={600} r={300} at={4} seed={5} slices={[
         {label: 'owned no one', value: s.none, subject: true, pct: pct(s.none, t), note: 'about 3 in 4', labelAt: [1110, 800]},
         {label: 'enslaved 1 to 19', value: s.small, pct: pct(s.small, t), labelAt: [380, 300]},
@@ -57,7 +57,7 @@ const Population: React.FC = () => (
 );
 
 const Twin: React.FC = () => (
-  <Frame title="COTTON AND SLAVERY GREW TOGETHER" tag="Cotton: thousands of bales · People: U.S. Census">
+  <Frame title="COTTON AND SLAVERY GREW TOGETHER" tag="Cotton: Historical Statistics of the U.S., K 554 · People: U.S. Census">
     <Note text="cotton grown" x={210} y={190} size={44} rot={-2} at={2} color="#ffffff" />
     <Bars x={200} y={250} w={1520} h={250} max={4000} at={4} per={4} seed={7} valueEvery={[0, 7]} bars={COTTON_BALES_K.map((d) => ({label: '', value: d.n, subject: true, show: d.n >= 1000 ? `${(d.n / 1000).toFixed(1)}M bales` : `${d.n}K bales`}))} />
     <Note text="enslaved people" x={210} y={560} size={44} rot={-2} at={30} color="#ffffff" />
@@ -67,17 +67,24 @@ const Twin: React.FC = () => (
 const fmt = (n: number) => n.toLocaleString('en-US');
 
 const Exports: React.FC = () => (
-  <Frame title="WHAT AMERICA SOLD THE WORLD, 1860" tag="Historical Statistics of the U.S. · domestic exports by value">
+  <Frame title="WHAT AMERICA SOLD THE WORLD, 1860" tag="Historical Statistics of the U.S. · merchandise exports by value, 1860">
     <SplitBar x={160} y={420} w={1600} h={200} at={6} parts={[{label: 'raw cotton', value: EXPORTS_1860.cotton, subject: true}, {label: 'everything else', value: EXPORTS_1860.other}]} />
   </Frame>
 );
 
 const Value: React.FC = () => (
-  <Frame title="WHERE THE WEALTH WAS, 1860" tag="Estimates: Deyle, Carry Me Back; U.S. Census 1860">
-    <HBars x={160} y={400} w={1150} rowH={130} gap={190} max={3.6e9} at={6} rows={[
+  <Frame title="WHERE THE WEALTH WAS, 1860" tag="Historical Statistics of the U.S., Bb213 · U.S. Census 1860">
+    <HBars x={160} y={400} w={1150} rowH={130} gap={190} max={3.2e9} at={6} rows={[
       {label: 'four million enslaved people, counted as property', parts: [{label: 'enslaved', value: VALUE_1860.enslaved, subject: true}]},
       {label: 'all the railroads + all the factories', parts: [{label: 'railroads', value: VALUE_1860.railroads}, {label: 'factories', value: VALUE_1860.manufacturing}]},
     ]} />
+  </Frame>
+);
+
+const Trade: React.FC = () => (
+  <Frame title="SOLD SOUTH, DECADE BY DECADE" tag="Tadman, Speculators and Slaves (1989) · net moves, Upper to Lower South">
+    <Bars x={200} y={260} w={1520} h={560} max={300000} at={4} per={5} seed={9} bars={TRADE_BY_DECADE.map((d) => ({label: d.decade, value: d.n, subject: d.decade === '1830s', show: `${Math.round(d.n / 1000)}K`}))} />
+    <Note text="about 1 million people in all" x={230} y={250} size={50} rot={-3} at={60} />
   </Frame>
 );
 
@@ -89,7 +96,7 @@ const Counter: React.FC = () => (
   </Frame>
 );
 
-export const CHARTS = [PieWho, PieFamilies, Population, Twin, Exports, Value, Counter];
+export const CHARTS = [PieWho, PieFamilies, Population, Twin, Exports, Value, Trade, Counter];
 export const ChartPreview: React.FC = () => (
   <AbsoluteFill style={{background: '#0d0c09'}}>
     {CHARTS.map((C, i) => (

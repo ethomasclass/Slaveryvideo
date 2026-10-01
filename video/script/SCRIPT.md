@@ -1,6 +1,6 @@
 # Grip Tighter: Slavery and the Cotton South
 
-**15 Minute History** · narration script · 2,752 words · about 16:03
+**15 Minute History** · narration script · 2,760 words · about 16:05
 
 **Driving question (asked in the cold open, answered in the last chapter):** Why did the South, at the very moment it could have started letting slavery go, hold on tighter than ever?
 **Answer:** cotton. The gin turned a system many expected to fade into the engine of America's most valuable export, so enslaved people became the South's biggest store of wealth. Slavery also propped up the status of white Southerners who owned no one. When Nat Turner showed the system could be fought, the South chose to tighten its grip instead of loosening it.
@@ -62,13 +62,13 @@ Now, you'd think a machine that saves labor would mean fewer enslaved workers. *
 
 Cotton also wore out the soil, so planters were always hungry for new land. And they got it. The Louisiana Purchase opened the Mississippi Valley. And after the {Indian Removal Act} of 1830, the United States forced the Cherokee, Creek, Choctaw, Chickasaw and Seminole nations off their homelands in the Southeast. Those homelands became cotton plantations.
 
-By 1860, the South grew about two-thirds of the world's cotton, and cotton was more than half of everything the United States sold overseas. It was the oil of the 1800s.
+By 1860, about three out of every four pounds of cotton in Britain's mills came from the American South, and cotton was more than half of everything the United States sold overseas. It was the oil of the 1800s.
 
 And it wasn't just a Southern business. Northern banks loaned the money. Northern ships carried the bales. Northern mills spun the thread.
 
 ---
 
-## 3:54 | Sold South
+## 3:57 | Sold South
 
 So, remember 1808? The ban that was supposed to starve slavery? It actually made the people already enslaved in America *more valuable*.
 
@@ -88,7 +88,7 @@ By 1830, the census counted more than two million enslaved people. The instituti
 
 ---
 
-## 5:22 | The Pyramid
+## 5:25 | The Pyramid
 
 So who ran this world? Start with who lived in it. In 1860, about *one out of every three* people in the slave states was enslaved.
 
@@ -112,7 +112,7 @@ And after Southampton, there was one more reason. Fear.
 
 ---
 
-## 7:02 | Sunup to Sundown
+## 7:05 | Sunup to Sundown
 
 So what was life like for the people the whole pyramid stood on?
 
@@ -130,7 +130,7 @@ And for an enslaved woman, being close to the owner could be the most dangerous 
 
 ---
 
-## 8:29 | No Law Above Him
+## 8:32 | No Law Above Him
 
 Under Southern law, an enslaved person was property. They couldn't testify in court against a white person. They couldn't legally defend themselves against their owner.
 
@@ -150,7 +150,7 @@ Celia was hanged in December 1855. She was about 19 years old.
 
 ---
 
-## 10:06 | A World Outside Work
+## 10:09 | A World Outside Work
 
 So far, it might sound like enslaved people only had things done to them. But that's not the whole story. Not even close.
 
@@ -170,7 +170,7 @@ Nat Turner's was the deadliest one that actually happened.
 
 ---
 
-## 11:59 | Southampton
+## 12:01 | Southampton
 
 So let's go back to Southampton County.
 
@@ -190,7 +190,7 @@ He fought a system that was violent every single day. His rebellion also killed 
 
 ---
 
-## 13:48 | Grip Tighter
+## 13:50 | Grip Tighter
 
 Now the South had to decide what Southampton meant. Most white Southerners blamed outsiders: Northern abolitionist newspapers, pamphlets smuggled in on ships.
 
@@ -266,12 +266,24 @@ The rule for every chart: one subject in coral, everything else in bone greys, l
 | # | Chart | Where | Narration it lands on | Subject (coral) |
 |---|---|---|---|---|
 | 1 | **Pie: who lived in the slave states, 1860.** Enslaved / free Black / white | ch05, first beat | "In 1860, about one out of every three people in the slave states was enslaved." | enslaved (~32%) |
-| 2 | **Pie: white families, 1860.** Owned no one / enslaved 1–19 / planters (20+) | ch05 | "about three out of every four white families in the slave states owned no enslaved people at all" | owned no one (~75%) |
+| 2 | **Pie: white families, 1860.** Owned no one (74%) / enslaved 1–19 (23%) / planters, 20 or more (3%) | ch05 | "about three out of every four white families in the slave states owned no enslaved people at all" | owned no one (74%) |
 | 3 | **Bars: enslaved people counted, 1790–1860** | ch02 (1790 bar only) → ch04 (grows to 1830, coral) → ch10 (full run to 1860) | "about 700,000" / "more than two million… nearly tripled" / "four million" | the year being narrated |
 | 4 | **Twin panels: cotton bales and enslaved people, 1790–1860.** Two charts on one time axis, *not* a dual-axis chart | end of ch03 / start of ch04 | "Cleaning got easy, so planters wanted to grow as much cotton as they possibly could" | cotton |
-| 5 | **Split bar: what America sold the world, 1860.** Raw cotton vs. everything else | ch03 | "cotton was more than half of everything the United States sold overseas" | raw cotton (~61%) |
-| 6 | **Comparison bars: where the wealth was, 1860.** Enslaved people as "property" vs. railroads + factories stacked | ch10 | "worth more than all the country's railroads and factories combined" | enslaved people |
+| 5 | **Split bar: what America sold the world, 1860.** Raw cotton vs. everything else | ch03 | "cotton was more than half of everything the United States sold overseas" | raw cotton (61%) |
+| 6 | **Comparison bars: where the wealth was, 1860.** Enslaved people as "property" ($3.1 billion) vs. railroads ($1.13 billion) + factories ($1.01 billion) stacked | ch10 | "worth more than all the country's railroads and factories combined" | enslaved people |
+| 8 | **Bars: sold south, decade by decade.** People moved from the Upper to the Lower South, 1790s–1850s (peak in the 1830s) | ch04 | "roughly a million enslaved people were forced to move south and west" | the 1830s |
 | 7 | **Running census counter** (corner, IBM Plex Mono) | ch02, ch04, ch10 | the same three numbers | — |
+
+**Chart data, verified** (full sources in `src/data/charts.ts`):
+- **Enslaved population:** Census Bureau Working Paper 56. The 1860 total of 3,953,760 includes 18 New Jersey "apprentices for life."
+- **Cotton:** HSUS series K 554, in thousands of 500-lb bales. 1859 (4.5 million) was the peak year, not 1860.
+- **Exports:** HSUS U 276 / U 191. 61% of merchandise exports, or 57.5% if re-exports are counted.
+- **Pie 1:** 15 slave states, 1860. 66% white, 32% enslaved, 2% free Black.
+- **Pie 2:** 1,515,605 free families and 393,967 slaveholders. Planters (20 or more): 47,571. Exactly one holding was over 1,000 people (Georgetown County, S.C.).
+  - The census's printed national table has a misprint for Arkansas: 1,149 holders instead of 11,481. That's why totals of ~385,000 circulate. I used the corrected figure.
+  - The OpenStax chart's "76.1%" doesn't match the census count of families. The correct figure is 74%.
+- **Value:** HSUS Bb213, $3.06 billion. Blight's often-quoted figure is $3.5 billion; it's "more than railroads and factories combined" either way.
+- **Trade by decade:** Tadman, about 1.1 million in all. Goldin's lower estimate is 835,000.
 
 Staging the pies: pie 1's "white" slice lifts out and opens into pie 2. It's one continuous motion, so viewers see that pie 2 is the white third of the South, broken down.
 
@@ -323,7 +335,9 @@ Every claim was verified chapter by chapter; the full table, with evidence and l
 - ***State v. Mann*** is dated 1829 (13 N.C. 263).
 - **"Three out of four"** holds for all 15 slave states. It's about seven in ten for the 11 Confederate states.
 - **Domestic slave trade:** "roughly a million… most of them sold." Estimates run from 835,000 to over a million, and the sold share is debated.
-- **$3.5 billion, more than railroads and factories combined:** Blight's figure. Others estimate about $3 billion.
+- **Value of enslaved people:** $3.06 billion (HSUS) or $3.5 billion (Blight). It's more than railroads ($1.13 billion) and factories ($1.01 billion) combined either way. The chart uses the official HSUS figure.
+- **World share of cotton:** no solid primary source exists for "two-thirds of the world's cotton" (figures from two-thirds to 80% circulate). The narration now says "three out of every four pounds of cotton in Britain's mills" (Beckert: 77% in the late 1850s; about 80% of 1860 imports).
+- **Slaveholder counts:** the 1860 census's own national table misprints Arkansas (1,149 for 11,481). Corrected totals are 393,967 slaveholders and 47,571 planters in the 15 slave states.
 
 ## From the lecture (5.3 Slavery & the Early South)
 
@@ -351,7 +365,7 @@ Every claim was verified chapter by chapter; the full table, with evidence and l
 - Gov. John Floyd, reward proclamation, Sept 17, 1831, Library of Virginia, Governor's Office, Letters Received, RG 3.
 - Patrick H. Breen, *The Land Shall Be Deluged in Blood* (2015); Encyclopedia Virginia, "Nat Turner's Revolt" and "Virginia Slavery Debate of 1831–1832"; Library of Virginia, "Death or Liberty" exhibit.
 - Alison Goodyear Freehling, *Drift Toward Dissolution* (1982); Virginia House Journal 1831–32 (via natturnerproject.org).
-- U.S. Census Bureau, Working Paper 56 (population by race, 1790–1990); 1860 census, *Agriculture of the United States in 1860* (slaveholders by number held).
+- U.S. Census Bureau, Working Paper 56 (population by race, 1790–1990); 1860 census: *Agriculture* (slaveholders by number held, pp. 223–247), *Statistics* (families, p. 351; railroads, p. 323), *Manufactures* (capital, p. 729); *Historical Statistics of the United States* (K 554, U 191, U 276, Bb209–214).
 - Angela Lakwete, *Inventing the Cotton Gin* (2003); National Park Service, Cane River Creole NHP; New Georgia Encyclopedia.
 - Sven Beckert, *Empire of Cotton* (2014); Edward E. Baptist, *The Half Has Never Been Told* (2014); *Historical Statistics of the United States*.
 - Ira Berlin, *Generations of Captivity* (2003); Michael Tadman, *Speculators and Slaves* (1989); Steven Deyle, *Carry Me Back* (2005); Bonnie Martin, "Slavery's Invisible Engine," *Journal of Southern History* (2010).
