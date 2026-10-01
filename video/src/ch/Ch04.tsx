@@ -218,7 +218,7 @@ const Hill: React.FC<{t: TL}> = ({t}) => (
     <DarkPaper />
     <Note text="Harriett Hill, interviewed in the 1930s" x={160} y={180} size={50} rot={-2} at={t.at('Harriett Hill') - 2} color="#ffffff" />
     <Note text="sold away from her mother in Georgia, at age three" x={180} y={280} size={46} rot={-2} at={t.at('remembered') - 2} />
-    <Quote text="It lack selling a calf from the cow. Exactly, but we are human beings and ought to be better than do sich." at={t.at('She said it') - 2} x={160} y={470} w={1560} size={66}
+    <Quote text="It lack selling a calf from the cow. Exactly, but we are human beings and ought to be better than do sich." at={t.at('She said it') - 2} x={160} y={470} w={1640} size={62}
       who="Harriett Hill, interviewed 1930s · Federal Writers' Project" />
   </AbsoluteFill>
 );

@@ -59,7 +59,7 @@ const Rewind: React.FC<{t: TL}> = ({t}) => {
       {g >= t.at('1790') && <Highlight text="1790" x={140} y={220} size={140} at={t.at('1790')} seed={21} rot={-2} />}
       <Note text="the first U.S. census" x={560} y={500} size={56} rot={-3} at={t.at('first United') - 2} />
       <Note text="counts about 700,000 enslaved people" x={580} y={620} size={50} rot={-3} at={t.at('700,000') - 2} color="#ffffff" />
-      <Bars x={220} y={200} w={220} h={640} max={4.2e6} at={t.at('700,000') - 6} seed={4} bars={[{label: '1790', value: N1790, subject: true, show: '≈ 700,000'}]} />
+      {g >= t.at('700,000') - 6 && <Bars x={220} y={200} w={220} h={640} max={4.2e6} at={t.at('700,000') - 6} seed={4} bars={[{label: '1790', value: N1790, subject: true, show: '≈ 700,000'}]} />}
       <Counter year={1790} from={0} to={N1790} at={t.at('700,000')} />
       {g >= t.at('700,000') && <Tag text="U.S. Census, 1790" />}
     </AbsoluteFill>

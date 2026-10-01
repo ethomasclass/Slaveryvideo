@@ -134,13 +134,13 @@ const Gin: React.FC<{t: TL}> = ({t}) => {
   return (
     <AbsoluteFill>
       <DarkPaper />
-      <PhotoCard src="img/ch03/cotton_gin_harpers_1869.jpg" x={1090} y={110} w={720} rot={2} at={t.at("It's called") - 1} filter="grayscale(1) contrast(1.25)" />
+      <PhotoCard src="img/ch03/cotton_gin_scenes_cotton_land_1871.jpg" x={1090} y={110} w={720} rot={2} at={t.at("It's called") - 1} filter="grayscale(1) contrast(1.25)" />
       <Note text="a “cotton engine”" x={140} y={110} size={54} rot={-3} at={t.at('cotton engine') - 2} color="#ffffff" />
       {g >= t.at('Gin') && <Highlight text="GIN" x={140} y={230} size={130} at={t.at('Gin')} seed={35} rot={-2} />}
       <Definition term="gin" def="short for “engine”: a machine that pulls cotton fiber away from its seeds" at={t.at('Gin') + 9} x={150} y={430} w={860} />
       <Note text="by hand: ≈ 1 lb / day" x={160} y={700} size={54} rot={-3} at={t.at('With a gin') - 2} color="#ffffff" />
       <Note text="with a gin: ≈ 50 lb / day" x={160} y={820} size={70} rot={-3} at={t.at('fifty') - 2} color={pal.subject} />
-      <Tag text="William L. Sheppard, The First Cotton-Gin, Harper's Weekly, Dec. 18, 1869 (later depiction)" />
+      <Tag text="Scenes in Cotton Land: The Cotton-Gin, 1871 (later depiction) · Library of Congress" />
     </AbsoluteFill>
   );
 };
@@ -194,8 +194,8 @@ const Land: React.FC<{t: TL}> = ({t}) => {
         const [mx, my] = S([1620, 2600]);
         return (
           <>
-            <Note text="cotton wore out the soil, too" x={1000} y={90} size={54} rot={-3} at={t.at('wore out') - 4} color="#ffffff" />
-            <Note text="→ always hungry for new land" x={1040} y={200} size={54} rot={-3} at={t.at('hungry for new') - 2} />
+            <Note text="cotton wore out the soil, too" x={940} y={90} size={54} rot={-3} at={t.at('wore out') - 4} color="#ffffff" />
+            <Note text="→ always hungry for new land" x={960} y={200} size={54} rot={-3} at={t.at('hungry for new') - 2} />
             <Arrow x1={lx - 30} y1={ly} x2={lx - 330} y2={ly - 40} bow={-20} at={t.at('Louisiana Purchase') + 2} />
             <Note text="Louisiana Purchase, 1803" x={lx - 600} y={ly + 30} size={46} rot={-3} at={t.at('Louisiana Purchase') - 2} />
             <Note text="the Mississippi Valley" x={mx + 50} y={my + 10} size={50} rot={-3} at={t.at('Mississippi Valley') - 2} />
