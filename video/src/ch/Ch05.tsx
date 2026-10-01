@@ -104,7 +104,8 @@ const Below: React.FC<{t: TL}> = ({t}) => {
         <>
           <Note text="small family farms" x={1080} y={300} size={50} rot={-3} at={t.at('small farmers') - 2} />
           <Note text="most owned no one" x={1080} y={400} size={50} rot={-3} at={t.at('owned no one') - 2} color="#ffffff" />
-          <Note text="some hoped to buy someone. many never did." x={1080} y={500} size={40} rot={-3} at={t.at('Some hoped') - 2} />
+          <Note text="some hoped to buy someone." x={1080} y={500} size={44} rot={-3} at={t.at('Some hoped') - 2} />
+          <Note text="many never did." x={1080} y={590} size={44} rot={-3} at={t.at('Many never') - 2} color="#ffffff" />
         </>
       )}
       <PhotoCard src="img/ch05/poor_white_folks_beard_1845.jpg" x={1150} y={170} w={690} rot={2} at={t.at('poor whites') - 1} />
