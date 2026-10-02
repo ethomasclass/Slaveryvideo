@@ -6,11 +6,11 @@ import React from 'react';
 import {AbsoluteFill, interpolate} from 'remotion';
 import words from '../../public/audio/ch04_sold_south.words.json';
 import {clamp} from '../lib/anim';
-import {Arrow, Highlight, Loop, Note, Tag, useGFrame, usePal} from '../kit/Kit';
+import {Arrow, Highlight, Note, Tag, useGFrame, usePal} from '../kit/Kit';
 import {DarkPaper, Sfx, WRITE} from '../kit/common';
 import {type Cam, MapScene, Pin, PLACES, type Pt, Region, Route, smooth} from '../kit/map';
 import {Bars} from '../kit/charts';
-import {Counter, Gen, sizeOf} from '../kit/gt';
+import {Counter, Doc, Gen, sizeOf} from '../kit/gt';
 import {ChapterShell, chapterFrames, CropCard, Definition, LEAD, makeTimeline, type Narration, Photo, PhotoCard, Quote, type TL, useScene} from '../kit/shell';
 import {ENSLAVED, TRADE_BY_DECADE} from '../data/charts';
 import {HeldNote} from './Ch02';
@@ -77,12 +77,14 @@ const Surplus: React.FC<{t: TL}> = ({t}) => {
 const PB = 'img/ch04/price_birch_alexandria.jpg';
 const Trade: React.FC<{t: TL}> = ({t}) => {
   const g = useGFrame();
-  const sc = 912 / sizeOf(PB)[0];
   return (
     <AbsoluteFill>
       <DarkPaper />
-      <PhotoCard src={PB} x={860} y={90} w={960} rot={2} at={t.at('This is called') - 1} />
-      <Loop cx={884 + 760 * sc + 6} cy={114 + 265 * sc} rx={300} ry={72} at={t.at('domestic') + 4} seed={9} tilt={2} />
+      <Doc src={PB} x={884} y={114} w={912} rot={2} sepia={0} at={t.at('This is called') - 1} push={[t.at('This is called'), t.at('domestic') + 60]} zoom={1.08} fx={750} fy={265} marks={[
+        // the painted sign, measured on the 1592 x 1061 print: the whole board, then "DEALERS IN SLAVES."
+        {box: [255, 182, 1245, 342], pad: 2, at: t.at('This is called') + 4, tint: true, noTrace: true},
+        {box: [365, 288, 992, 336], pad: 10, at: t.at('domestic') + 4, seed: 9},
+      ]} />
       <Note text="a slave-trading firm" x={110} y={220} size={50} rot={-3} at={t.at('This is called') + 2} color="#ffffff" />
       <Note text="Alexandria, Virginia" x={130} y={320} size={50} rot={-3} at={t.at('This is called') + 6} color="#ffffff" />
       {g >= t.at('domestic') && <Highlight text="DOMESTIC SLAVE TRADE" x={110} y={790} size={88} at={t.at('domestic')} seed={47} rot={-2} />}
