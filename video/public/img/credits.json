@@ -215,5 +215,21 @@
     "date": "1861",
     "licence": "Public domain",
     "page": "https://commons.wikimedia.org/wiki/File:Incidents_in_the_life_of_a_slave_girl.djvu"
+  },
+  "arch/eclipse/smith_illustrated_astronomy_eclipses_plate_1849.jpg": {
+    "title": "Smith's illustrated astronomy : designed for the use of the public or common schools in the United States ; illustrated with numerous original diagrams (page 36)",
+    "artist": "['Smith, Asa', 'Burndy Library, donor. DSI']",
+    "date": "1849",
+    "licence": "public domain by age (1849)",
+    "page": "https://archive.org/details/Smithquotsillus00Smit/page/n36",
+    "source": "iabook:Smithquotsillus00Smit:36"
+  },
+  "arch/eclipse/great_solar_eclipse_johnston_1831.jpg": {
+    "title": "Great solar eclipse. To be seen every day at West's observatory, No. 7 Pear St. Philadelphia. NB No postponement on account of weather / D.C. Johnston.",
+    "artist": "Johnston, David Claypoole, 1799-1865, engraver",
+    "date": "1831",
+    "licence": "No known restrictions on publication.",
+    "page": "https://www.loc.gov/item/2015650347/",
+    "source": "loc:2015650347"
   }
 }
