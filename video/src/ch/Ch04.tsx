@@ -89,7 +89,7 @@ const Trade: React.FC<{t: TL}> = ({t}) => {
       <Note text="Alexandria, Virginia" x={130} y={320} size={50} rot={-3} at={t.at('This is called') + 6} color="#ffffff" />
       {g >= t.at('domestic') && <Highlight text="DOMESTIC SLAVE TRADE" x={110} y={790} size={88} at={t.at('domestic')} seed={47} rot={-2} />}
       <Definition term="do·mes·tic slave trade" def="buying and selling enslaved people inside the United States" at={t.at('domestic') + 9} x={120} y={930} w={1700} />
-      <Tag text="Andrew J. Russell, Price, Birch & Co., Dealers in Slaves, Alexandria, Va., photograph, 1863 (after Union capture)" x={44} y={40} />
+      <Tag text="Andrew J. Russell, Slave Pen, Alexandria, Virginia (Price, Birch & Co.), 1863, after Union capture · The Metropolitan Museum of Art" x={44} y={40} />
     </AbsoluteFill>
   );
 };

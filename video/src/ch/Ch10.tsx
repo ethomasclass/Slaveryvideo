@@ -96,7 +96,7 @@ const Randolph: React.FC<{t: TL}> = ({t}) => {
       <Note text="Jefferson's grandson" x={850} y={260} size={52} rot={-3} at={t.at('grandson') - 2} />
       {g >= t.at('gradual') && <Highlight text="GRADUAL EMANCIPATION" x={800} y={420} size={74} at={t.at('gradual')} seed={101} rot={-2} />}
       <Definition term="grad·u·al e·man·ci·pa·tion" def="a plan to end slavery slowly, over many years" at={t.at('gradual') + 9} x={820} y={570} w={980} />
-      <Tag text="Charles Willson Peale, Thomas Jefferson Randolph · Monticello" />
+      <Tag text="Charles Willson Peale, Thomas Jefferson Randolph, 1808 · Thomas Jefferson Foundation at Monticello" />
     </AbsoluteFill>
   );
 };
