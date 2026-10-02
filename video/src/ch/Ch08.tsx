@@ -267,7 +267,8 @@ const North: React.FC<{t: TL}> = ({t}) => {
             <Pin x={px} y={py} at={-10} />
             <Note text="1842: escaped north" x={110} y={110} size={64} rot={-3} at={t.at('In 1842') - 2} />
             <Note text="later, she told her story" x={110} y={820} size={52} rot={-2} at={t.at('later she') - 2} color="#ffffff" />
-            <Doc src="img/ch08/incidents_title_page_1861.jpg" x={1290} y={130} w={480} at={t.at('told her story') - 1} rot={2} push={[t.at('told her story'), t.at('And very rarely')]} zoom={1.08} fx={960} fy={700} />
+            <Doc src="img/ch08/incidents_title_page_1861.jpg" x={1290} y={130} w={480} at={t.at('told her story') - 1} rot={2} push={[t.at('told her story'), t.at('And very rarely')]} zoom={1.08} fx={960} fy={700}
+              marks={[{box: [462, 1158, 1420, 1234], pad: 22, at: t.at('told her story') + 8, tint: true, seed: 81, width: 4}]} />
             <Tag text={MAPTAG} y={1000} />
             {g >= t.at('told her story') && <Tag text="Harriet Jacobs (“Linda Brent”), Incidents in the Life of a Slave Girl, title page, Boston, 1861" />}
           </>

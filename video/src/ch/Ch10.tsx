@@ -218,7 +218,8 @@ const Seed: React.FC<{t: TL}> = ({t}) => (
     <Counter year={1790} from={ENSLAVED[0].n} to={ENSLAVED[0].n} at={t.at('In 1790') - 2} dur={1} />
     <Note text="(it starts with a seed)" x={160} y={120} size={50} rot={-4} at={t.at('seed') - 4} color="#ffffff" />
     <Note text="1790: slavery might fade" x={180} y={280} size={58} rot={-3} at={t.at('In 1790') - 2} />
-    <Doc src={GIN} x={1240} y={250} w={420} at={t.at('cotton gin') - 1} rot={2} push={[t.at('cotton gin'), t.at('By 1860')]} zoom={1.08} />
+    <Doc src={GIN} x={1240} y={250} w={420} at={t.at('cotton gin') - 1} rot={2} push={[t.at('cotton gin'), t.at('By 1860')]} zoom={1.08}
+      marks={[{ellipse: [1818, 2246, 850, 610], at: t.at('cotton gin') + 4, tint: true, seed: 5}]} />
     <Note text="then: the cotton gin" x={200} y={430} size={58} rot={-3} at={t.at('Then the cotton') - 2} />
     <Arrow x1={900} y1={485} x2={1200} y2={470} bow={-30} at={t.at('cotton gin') + 4} />
     <Note text="enslaved people became the engine" x={200} y={590} size={52} rot={-3} at={t.at('engine') - 4} />
