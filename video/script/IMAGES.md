@@ -1,8 +1,31 @@
 # Images: Grip Tighter
 
-Archival images are in `video/public/img/chNN/`. Each was downloaded with `tools/find_images.py` / `tools/commons.py`, and every one is recorded with its source, author, date and licence in `video/public/img/credits.json`. Paintings to generate are in `GEMINI_PROMPTS.md`. On screen, every image is black and white with a source tag.
+Archival images are in `video/public/img/chNN/`. Each was downloaded with `tools/find_images.py` / `tools/commons.py`, and every one is recorded with its source, author, date and licence in `video/public/img/credits.json`. **The video is now all archival: no generated paintings.** The 11 painting slots were filled from `video/public/img/arch/<scene>/` (table below); `GEMINI_PROMPTS.md` is retired. On screen, every image carries a source tag.
 
 Status key: **have** = downloaded and checked on a contact sheet; **need** = still to find; **gen** = Gemini (you).
+
+
+## Archival replacements for the painting slots (current)
+
+| Scene | Was (painting) | Now | Marks on screen |
+|---|---|---|---|
+| ch03 Seeds | seeds by hand | Sydenham Edwards, cotton, *Botanical Register* pl. 84, 1815 (BHL) · `arch/seeds_by_hand/cotton_plant_boll_botanical_register_1815.jpg` | coral loop + tint on the open boll at "sticky" |
+| ch04 Passage | coffle on a road | Lewis Miller, *Slave Trader, Sold to Tennessee*, eyewitness sketch, Staunton, c. 1853 (Abby Aldrich Rockefeller Folk Art Museum) · `arch/coffle_road/…miller…` | his caption tinted; the coffle outlined |
+| ch06 WeighIn | weighing cotton | Solomon Northup, *Twelve Years a Slave*, 1853, pp. 167–68 (Internet Archive) | "where the cotton is weighed", "If it falls short…", "exceeded it… next day's task accordingly" washed as read |
+| ch06 Gangs (added) | none | Lakin stereograph, *Picking cotton near Montgomery*, c. 1860 (LoC) | none |
+| ch06 Cabin | cabin interior | HABS photo, McLeod Plantation quarters, 1990 (LoC) · `arch/cabin_interior/mcleod…` | none |
+| ch07 Cabin | cabin at night | *State v. Celia* indictment, Aug. 1855 (Callaway Co. Circuit Court, via UMKC Famous Trials) | "Celia otherwise Celia Newsom, a Slave"; "with a large piece of wood" |
+| ch08 Harbor | hush harbor | John Antrobus, *Plantation Burial*, 1860 (Historic New Orleans Collection), tagged as a night funeral | none |
+| ch08 Crawl | crawl space | Harriet Jacobs, *Incidents*, 1861, pp. 173, 175 (Internet Archive) | "nine feet long and seven wide… three feet high"; "Through my peeping-hole…" |
+| ch09 Eclipse, ch10 Sky | eclipse over fields | Asa Smith, *Illustrated Astronomy*, 1849, Fig. 9 "Annular Eclipse of the Sun" (Internet Archive) | slow push into the ring |
+| ch09 Woods | meeting in the woods | *Confessions*, 1831, p. 12 | "prepared in the woods a dinner", "on that night" |
+| ch09 Hiding | hiding place | *Confessions*, 1831, p. 17 (+ Floyd proclamation card) | "scratched a hole under a pile of fence rails"; "Mr. Benjamin Phipps, in a little hole" |
+| ch10 Debate | House of Delegates | *Capitol of Virginia, Richmond*, engraving, London, 1831 (NYPL) | none |
+| ch02 Rewind (added) | none | *First Census… 1790*, population by states (Census Bureau reprint, 1908) | "Slaves." column |
+| ch02 Ban (added) | none | An Act to Prohibit the Importation of Slaves, 1807, p. 1 (National Archives) | the Act's title and "from and after the first day of January… eight" |
+| ch04 Hill (added) | none | Federal Writers' Project, Arkansas narratives, Harriett Hill, p. 258 (LoC) | "I was sold away from my dear old mammy at three years old" |
+
+Candidates kept but not used: Johnston's 1831 *Great Solar Eclipse* (comic ad), Guillemin total-eclipse plate (wrong eclipse type), Köhler cotton plate, churka drawing, Leslie's 1862 page, 1864 coffle engraving, Simon c. 1908 weighing photo (sharecropping era), Hopsewee HABS, Fisk Jubilee Singers, Waud 1867, Darley 1863 imagined Turner (invents a face: do not use), Confederate engineers' map, Brady 1865 Capitol, *Liberator* no. 1, Walker's *Appeal* (not in the narration), NC 1790 heads-of-families page, Celia verdict/fees/inquest, Ballou's 1858.
 
 ## ch01 · Cold open (the reward proclamation)
 

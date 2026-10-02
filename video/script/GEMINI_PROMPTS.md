@@ -1,5 +1,7 @@
 # Gemini paintings: Grip Tighter
 
+> **Retired.** The video now uses only archival images; every slot below was filled from a sourced document, print or photo (see `IMAGES.md`, "Archival replacements"). Kept for the record only.
+
 These are for moments no archive can show. Everything else comes from period images (see `IMAGES.md`).
 
 **How to make them**
