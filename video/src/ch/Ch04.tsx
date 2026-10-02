@@ -10,7 +10,7 @@ import {Arrow, Highlight, Note, Tag, useGFrame, usePal} from '../kit/Kit';
 import {DarkPaper, Sfx, WRITE} from '../kit/common';
 import {type Cam, MapScene, Pin, PLACES, type Pt, Region, Route, smooth} from '../kit/map';
 import {Bars} from '../kit/charts';
-import {Counter, Doc, Gen, sizeOf} from '../kit/gt';
+import {Counter, Doc, sizeOf} from '../kit/gt';
 import {ChapterShell, chapterFrames, CropCard, Definition, LEAD, makeTimeline, type Narration, Photo, PhotoCard, Quote, type TL, useScene} from '../kit/shell';
 import {ENSLAVED, TRADE_BY_DECADE} from '../data/charts';
 import {HeldNote} from './Ch02';
@@ -107,15 +107,22 @@ const ByDecade: React.FC<{t: TL}> = ({t}) => (
   </AbsoluteFill>
 );
 
-/** Vocab: the Second Middle Passage, over the coffle on the road. */
+/** Vocab: the Second Middle Passage, beside Lewis Miller's sketch of a coffle leaving Virginia. */
+const MILLER = 'img/arch/coffle_road/lewis_miller_slave_trader_sold_to_tennessee_1853.jpg';
 const Passage: React.FC<{t: TL}> = ({t}) => {
   const g = useGFrame();
   return (
-    <Gen name="ch04_coffle_road" label="a coffle on a Southern road, 1830s" a={t.at('Some historians') - 1} b={t.at('Richmond')} z0={1.02} z1={1.06}>
-      <AbsoluteFill style={{background: 'linear-gradient(180deg, rgba(8,6,4,0.55) 0%, transparent 40%)'}} />
+    <AbsoluteFill>
+      <DarkPaper />
+      <Doc src={MILLER} x={1170} y={380} w={620} rot={2} sepia={0.1} at={t.at('Some historians') - 1} push={[t.at('Some historians'), t.at('Richmond')]} zoom={1.06} fx={1350} fy={1500} marks={[
+        // an eyewitness sketch (2560 x 2385): his caption, then the coffle on the road out of Staunton
+        {box: [730, 95, 2090, 240], pad: 10, at: t.at('Some historians') + 6, tint: true, seed: 41, width: 4},
+        {ellipse: [1350, 1610, 760, 300], at: t.at('Second Middle') + 10, seed: 42},
+      ]} />
       {g >= t.at('Second Middle') && <Highlight text="SECOND MIDDLE PASSAGE" x={110} y={70} size={84} at={t.at('Second Middle')} seed={49} rot={-2} />}
-      <Definition term="Sec·ond Mid·dle Pas·sage" def="historians' name for the forced move of about a million enslaved people to the Deep South" at={t.at('Second Middle') + 9} x={120} y={210} w={1180} />
-    </Gen>
+      <Definition term="Sec·ond Mid·dle Pas·sage" def="historians' name for the forced move of about a million enslaved people to the Deep South" at={t.at('Second Middle') + 9} x={120} y={210} w={1000} />
+      <Tag text="Lewis Miller, Slave Trader, Sold to Tennessee, eyewitness sketch, Staunton, Va., c. 1853 · Abby Aldrich Rockefeller Folk Art Museum" />
+    </AbsoluteFill>
   );
 };
 
@@ -218,13 +225,20 @@ const Families: React.FC<{t: TL}> = ({t}) => (
 );
 
 /** Harriett Hill, in her own words. */
+const HILL = 'img/arch/harriett_hill/harriett_hill_fwp_arkansas_p258_1937.jpg';
 const Hill: React.FC<{t: TL}> = ({t}) => (
   <AbsoluteFill>
     <DarkPaper />
+    <Doc src={HILL} x={1260} y={110} w={540} rot={1.5} at={t.at('Harriett Hill') - 1} out={t.at('She said it') - 2} push={[t.at('Harriett Hill'), t.at('She said it')]} zoom={1.2} fx={1200} fy={1200} marks={[
+      // Federal Writers' Project typescript, 2457 x 3534: "I was sold away from my dear old mammy at three years old"
+      {box: [1073, 1104, 2125, 1176], pad: 8, at: t.at('remembered') + 2, tint: true, noTrace: true},
+      {box: [114, 1215, 1000, 1285], pad: 8, at: t.at('remembered') + 5, tint: true, noTrace: true},
+    ]} />
     <Note text="Harriett Hill, interviewed in the 1930s" x={160} y={180} size={50} rot={-2} at={t.at('Harriett Hill') - 2} color="#ffffff" />
-    <Note text="sold away from her mother in Georgia, at age three" x={180} y={280} size={46} rot={-2} at={t.at('remembered') - 2} />
+    <Note text="sold away from her mother in Georgia," x={180} y={280} size={46} rot={-2} at={t.at('remembered') - 2} />
+    <Note text="at age three" x={200} y={360} size={46} rot={-2} at={t.at('remembered') + 4} />
     <Quote text="It lack selling a calf from the cow. Exactly, but we are human beings and ought to be better than do sich." at={t.at('She said it') - 2} x={160} y={470} w={1640} size={62}
-      who="Harriett Hill, interviewed 1930s · Federal Writers' Project" />
+      who="Harriett Hill, interviewed 1936–38 · Federal Writers' Project · Library of Congress" />
   </AbsoluteFill>
 );
 

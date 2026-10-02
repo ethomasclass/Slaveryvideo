@@ -9,7 +9,7 @@ import {clamp} from '../lib/anim';
 import {JF, Highlight, Loop, Note, Tag, useGFrame, usePal} from '../kit/Kit';
 import {DarkPaper, Sfx, WRITE} from '../kit/common';
 import {type Cam, MapScene, Pin, PLACES} from '../kit/map';
-import {cue, Doc, Gen, sizeOf} from '../kit/gt';
+import {cue, Doc, Pic, sizeOf} from '../kit/gt';
 import {ChapterShell, chapterFrames, CropCard, LEAD, makeTimeline, type Narration, PhotoCard, Quote, type TL, useScene} from '../kit/shell';
 
 const N = words as Narration;
@@ -21,7 +21,6 @@ const CONF = 'img/ch09/confessions_title_page_1831.jpg';
 const CONFTAG = 'Thomas R. Gray, The Confessions of Nat Turner, title page, 1831 · Internet Archive';
 const P2 = 'img/ch01/floyd_reward_proclamation_1831_p2.jpg';
 const ECL = 'img/ch01/eclipse_map_1831.jpg';
-const ECLIPSE_LABEL = 'Southampton County, Virginia, February 1831: the eclipse';
 
 /** A plain statement in bone Playfair: no write-on, no colour, a slow fade. For the facts that get no marks. */
 const Plain: React.FC<{text: string; x: number; y: number; at: number; size?: number; w?: number; dim?: number}> = ({text, x, y, at, size = 56, w, dim = 1}) => {
@@ -109,12 +108,15 @@ const EclipseMap: React.FC<{t: TL}> = ({t}) => {
   );
 };
 
-/** The eclipse over the fields (painting). */
+/** The eclipse, as a schoolbook drew it: the moon inside the sun's ring. */
+const SMITH = 'img/arch/eclipse/smith_illustrated_astronomy_eclipses_plate_1849.jpg';
+const SMITH_TAG = "Asa Smith, Smith's Illustrated Astronomy, 1849, Fig. 9: “Annular Eclipse of the Sun” · Internet Archive";
 const Eclipse: React.FC<{t: TL}> = ({t}) => (
-  <Gen name="ch01_eclipse" label={ECLIPSE_LABEL} a={t.at('moon') - 1} b={t.at('When the sun')}>
+  <Pic src={SMITH} tag={SMITH_TAG} a={t.at('moon') - 1} b={t.at('When the sun')} fx={2766} fy={3562} z0={1.05} z1={1.7} bw="contrast(1.1) saturate(0.75) brightness(0.92)">
+    <AbsoluteFill style={{background: 'linear-gradient(180deg, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.5) 22%, transparent 40%)'}} />
     <Note text="midday: the sky went strange and dim" x={110} y={100} size={48} rot={-3} at={t.at('sky went') - 2} color="#ffffff" />
     <Note text="he took it as the signal" x={130} y={200} size={54} rot={-3} at={t.at('signal') - 4} />
-  </Gen>
+  </Pic>
 );
 
 /** Two signs, drawn: the darkened sun in February, the bluish-green sun in August. */
@@ -151,12 +153,23 @@ const Signs: React.FC<{t: TL}> = ({t}) => (
   </AbsoluteFill>
 );
 
-/** August 21st: the meeting in the woods (painting). */
+/** August 21st: the meeting in the woods, in the Confessions (p. 12). No portrait of Turner exists. */
+const C12 = 'img/arch/woods_meeting/confessions_p12_dinner_in_the_woods_1831.jpg';
 const Woods: React.FC<{t: TL}> = ({t}) => (
-  <Gen name="ch09_woods_meeting" label="Southampton County, Virginia, the night of August 21, 1831" a={t.at('On August') - 1} b={t.at('They killed')}>
+  <AbsoluteFill>
+    <DarkPaper />
+    <Doc src={C12} x={1080} y={80} w={600} rot={1.5} at={t.at('On August') - 1} push={[t.at('On August'), t.at('They killed')]} zoom={1.2} fx={960} fy={600} marks={[
+      // 1928 x 3348 scan: "they prepared in the woods a dinner" / "about three o'clock, I joined them" / "commence at home (Mr. J. Travis') on that night"
+      {box: [580, 262, 1620, 340], pad: 8, at: t.at('his followers'), tint: true, noTrace: true},
+      {box: [160, 342, 1110, 404], pad: 8, at: t.at('his followers') + 3, tint: true, noTrace: true},
+      {box: [160, 1000, 1760, 1065], pad: 8, at: t.at('That night'), tint: true, noTrace: true},
+      {box: [160, 1069, 470, 1130], pad: 8, at: t.at('That night') + 2, tint: true, noTrace: true},
+    ]} />
     <Note text="Aug. 21, 1831" x={110} y={100} size={60} rot={-3} at={t.at('On August') - 2} color="#ffffff" />
-    <Note text="that night, they began" x={130} y={210} size={54} rot={-3} at={t.at('That night') - 2} />
-  </Gen>
+    <Note text="a meeting in the woods" x={130} y={210} size={54} rot={-3} at={t.at('his followers') - 2} />
+    <Note text="that night, they began" x={130} y={320} size={54} rot={-3} at={t.at('That night') - 2} />
+    <Tag text="The Confessions of Nat Turner, Baltimore, 1831, p. 12 · Internet Archive" />
+  </AbsoluteFill>
 );
 
 /** The killings and the revenge, stated plainly over the darkened map. No images. */
@@ -187,14 +200,23 @@ const Killings: React.FC<{t: TL}> = ({t}) => {
 };
 
 /** More than two months in hiding; the governor's reward from the cold open; found on October 30th. */
+const C17 = 'img/arch/hiding_place/confessions_p17_hole_under_fence_rails_cave_1831.jpg';
 const Hiding: React.FC<{t: TL}> = ({t}) => (
-  <Gen name="ch09_hiding_place" label="Southampton County, Virginia, autumn 1831: a hiding place" a={t.at('Turner hid') - 1} b={t.at('In jail')}>
-    <Note text="hid for more than two months" x={110} y={110} size={52} rot={-3} at={t.at('hid') - 2} color="#ffffff" />
-    <PhotoCard src={P2} x={1300} y={150} w={440} rot={2} at={t.at('two months') - 1} fit="contain" filter="grayscale(1) sepia(0.3) contrast(1.15)" />
-    <Note text="the governor's $500 reward" x={1170} y={760} size={42} rot={-3} at={t.at('two months') + 4} color="#ffffff" />
-    <Note text="Oct. 30, 1831: a farmer found him" x={130} y={850} size={54} rot={-3} at={t.at('On October') - 2} />
-    <Tag text="Gov. John Floyd, reward proclamation, Sept. 17, 1831 · Library of Virginia" x={44} y={40} />
-  </Gen>
+  <AbsoluteFill>
+    <DarkPaper />
+    <Doc src={C17} x={140} y={120} w={500} rot={-1.5} at={t.at('Turner hid') - 1} push={[t.at('Turner hid'), t.at('In jail')]} zoom={1.1} fx={960} fy={2000} marks={[
+      // 1928 x 3348 scan: "I scratched a hole under a pile of fence rails in a field" / "taken ... by Mr. Benjamin Phipps, in a little hole I had dug out with my sword"
+      {box: [330, 1330, 1700, 1394], pad: 8, at: t.at('hid'), tint: true, noTrace: true},
+      {box: [160, 1398, 1345, 1462], pad: 8, at: t.at('hid') + 2, tint: true, noTrace: true},
+      {box: [160, 2713, 1700, 2777], pad: 8, at: t.at('On October'), tint: true, noTrace: true},
+      {box: [160, 2780, 890, 2844], pad: 8, at: t.at('On October') + 2, tint: true, noTrace: true},
+    ]} />
+    <Note text="hid for more than two months" x={720} y={110} size={48} rot={-3} at={t.at('hid') - 2} color="#ffffff" />
+    <PhotoCard src={P2} x={1330} y={230} w={420} rot={2} at={t.at('two months') - 1} fit="contain" filter="grayscale(1) sepia(0.3) contrast(1.15)" />
+    <Note text="the governor's $500 reward" x={1220} y={830} size={42} rot={-3} at={t.at('two months') + 4} color="#ffffff" />
+    <Note text="Oct. 30, 1831: a farmer found him" x={700} y={930} size={54} rot={-3} at={t.at('On October') - 2} />
+    <Tag text="The Confessions of Nat Turner, 1831, p. 17 · Internet Archive  |  Gov. John Floyd, reward proclamation, 1831 · Library of Virginia" />
+  </AbsoluteFill>
 );
 
 /** In jail: Thomas Gray and the Confessions. Read with care. */

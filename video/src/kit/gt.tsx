@@ -130,11 +130,11 @@ const DocMarks: React.FC<{marks: DocMark[]; size: [number, number]; w: number; h
 
 /** A document or page on the desk: cream card, light sepia, pops on, then pushes in slowly toward (fx, fy).
  *  `marks` draw on the paper itself (see DocMark). `children(S)` get a source→screen mapper (tilt included) for overlays off the paper. */
-export const Doc: React.FC<{src: string; x: number; y: number; w: number; at: number; rot?: number; push?: [number, number]; fx?: number; fy?: number; zoom?: number; sepia?: number;
-  marks?: DocMark[]; children?: (S: (sx: number, sy: number) => number[]) => React.ReactNode}> = ({src, x, y, w, at, rot = 0, push, fx, fy, zoom = 1.25, sepia = 0.3, marks, children}) => {
+export const Doc: React.FC<{src: string; x: number; y: number; w: number; at: number; out?: number; rot?: number; push?: [number, number]; fx?: number; fy?: number; zoom?: number; sepia?: number;
+  marks?: DocMark[]; children?: (S: (sx: number, sy: number) => number[]) => React.ReactNode}> = ({src, x, y, w, at, out = Infinity, rot = 0, push, fx, fy, zoom = 1.25, sepia = 0.3, marks, children}) => {
   const frame = useCurrentFrame();
   const g = useGFrame();
-  if (g < at) return null;
+  if (g < at || g >= out) return null;
   const size = sizeOf(src);
   const h = (w * size[1]) / size[0];
   const k = interpolate(g, [at, at + 5], [0, 1], {...clamp, easing: (t) => 1 - Math.pow(1 - t, 3) * (1 - 2.2 * t * (1 - t))});

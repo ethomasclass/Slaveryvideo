@@ -8,7 +8,7 @@ import {clamp} from '../lib/anim';
 import {Arrow, Highlight, JF, Note, Tag, useGFrame, usePal} from '../kit/Kit';
 import {DarkPaper, Sfx, WRITE} from '../kit/common';
 import {type Cam, MapScene, Pin, PLACES, Route} from '../kit/map';
-import {cue, Doc, Gen, sizeOf} from '../kit/gt';
+import {cue, Doc, Pic, sizeOf} from '../kit/gt';
 import {ChapterShell, chapterFrames, CropCard, Definition, LEAD, makeTimeline, type Narration, PhotoCard, type TL, useScene} from '../kit/shell';
 import {MASKS} from '../masks';
 
@@ -149,17 +149,18 @@ const Song: React.FC<{t: TL}> = ({t}) => (
   </AbsoluteFill>
 );
 
-/** Hush harbors (painting). */
+/** Hush harbors, over the closest period painting: Antrobus's night burial in the woods, 1860. */
+const HARBOR = 'img/arch/hush_harbor/antrobus_plantation_burial_1860.jpg';
 const Harbor: React.FC<{t: TL}> = ({t}) => {
   const g = useGFrame();
   return (
-    <Gen name="ch08_hush_harbor" label="a hush harbor in the woods at night, South Carolina, c. 1840" a={t.at('At night') - 1} b={t.at('Resistance came')}>
+    <Pic src={HARBOR} tag="John Antrobus, Plantation Burial, 1860: a night funeral in the woods · Historic New Orleans Collection" a={t.at('At night') - 1} b={t.at('Resistance came')} fx={1000} fy={700} z0={1.04} z1={1.12} bw="grayscale(1) contrast(1.15) brightness(0.9)">
       <AbsoluteFill style={{background: 'linear-gradient(180deg, rgba(0,0,0,0.55) 0%, transparent 35%, transparent 70%, rgba(0,0,0,0.55) 100%)'}} />
       <Note text="at night, in secret" x={120} y={80} size={50} rot={-2} at={t.at('At night') - 2} color="#ffffff" />
       {g >= t.at('hush harbors') && <Highlight text="HUSH HARBORS" x={110} y={170} size={96} at={t.at('hush harbors')} seed={85} rot={-2} />}
       <Definition term="hush har·bors" def="secret places in the woods where enslaved people met to pray" at={t.at('hush harbors') + 9} x={120} y={320} w={1200} />
       <Note text="an iron pot turned upside down, to muffle the sound of prayer" x={120} y={900} size={48} rot={-2} at={t.at('turned a big') - 2} />
-    </Gen>
+    </Pic>
   );
 };
 
@@ -225,30 +226,36 @@ const Jacobs: React.FC<{t: TL}> = ({t}) => {
   );
 };
 
-/** The crawl space (painting), with its height drawn on. */
+/** The crawl space, in her own words (Incidents, 1861, pp. 173, 175). */
+const P173 = 'img/arch/crawl_space/incidents_p173_loophole_of_retreat_garret_1861.jpg';
+const P175 = 'img/arch/crawl_space/incidents_p175_peeping_hole_1861.jpg';
 const Crawl: React.FC<{t: TL}> = ({t}) => {
-  const g = useGFrame();
-  const pal = usePal();
   const a = t.at('three feet');
-  const p = interpolate(g, [a, a + 8], [0, 1], clamp);
-  const x = 1640;
-  const y0 = 400;
-  const y1 = 760;
+  const th = t.at('Through a tiny');
   return (
-    <Gen name="ch08_crawl_space" label="an attic crawl space, Edenton, North Carolina, c. 1838" a={t.at('She hid') - 1} b={t.at('In 1842')} z0={1.02} z1={1.06}>
-      <AbsoluteFill style={{background: 'linear-gradient(180deg, rgba(0,0,0,0.5) 0%, transparent 30%, transparent 70%, rgba(0,0,0,0.55) 100%)'}} />
-      <Note text="a crawl space in her grandmother's attic" x={110} y={90} size={52} rot={-2} at={t.at('crawl space') - 2} color="#ffffff" />
-      {g >= a && (
-        <svg style={{position: 'absolute', left: 0, top: 0, overflow: 'visible'}} width={1920} height={1080}>
-          <line x1={x} y1={y1} x2={x} y2={y1 - (y1 - y0) * p} stroke={pal.mark} strokeWidth={5} strokeLinecap="round" />
-          <line x1={x - 26} y1={y1} x2={x + 26} y2={y1} stroke={pal.mark} strokeWidth={5} strokeLinecap="round" />
-          {p >= 1 && <line x1={x - 26} y1={y0} x2={x + 26} y2={y0} stroke={pal.mark} strokeWidth={5} strokeLinecap="round" />}
-        </svg>
-      )}
-      <Note text="3 ft" x={x + 40} y={(y0 + y1) / 2 - 50} size={64} rot={-3} at={a + 6} />
-      <Note text="almost 7 years" x={110} y={790} size={76} rot={-3} at={t.at('almost seven') - 2} />
-      <Note text="through a tiny hole, she watched her children play" x={110} y={930} size={46} rot={-2} at={t.at('Through a tiny') - 2} color="#ffffff" />
-    </Gen>
+    <AbsoluteFill>
+      <DarkPaper />
+      <Doc src={P173} x={1270} y={60} w={520} rot={-1.5} at={t.at('She hid') - 1} push={[t.at('She hid'), th]} zoom={1.15} fx={740} fy={1150} marks={[
+        // "The garret was only nine feet long and seven wide. The highest part was three feet high" (1500 x 2660 scan)
+        {box: [690, 1050, 1405, 1114], pad: 6, at: t.at('crawl space') + 4, tint: true, noTrace: true},
+        {box: [80, 1120, 662, 1180], pad: 6, at: t.at('crawl space') + 6, tint: true, noTrace: true},
+        {box: [735, 1120, 1405, 1180], pad: 6, at: a, tint: true, noTrace: true},
+        {box: [80, 1188, 385, 1250], pad: 6, at: a + 2, tint: true, noTrace: true},
+        {underline: [735, 1405, 1182], at: a + 2, seed: 87, width: 4},
+        {underline: [80, 385, 1252], at: a + 6, seed: 88, width: 4},
+      ]} />
+      <Doc src={P175} x={1240} y={90} w={520} rot={2} at={th - 1} push={[th, t.at('In 1842')]} zoom={1.12} fx={760} fy={2300} marks={[
+        // "Through my peeping-hole I could watch the children"
+        {box: [110, 2265, 1420, 2332], pad: 6, at: th + 2, tint: true, seed: 89, width: 4},
+      ]} />
+      <Note text="a crawl space in her grandmother's attic" x={110} y={90} size={46} rot={-2} at={t.at('crawl space') - 2} color="#ffffff" />
+      <Note text="9 ft long · 7 ft wide" x={130} y={250} size={56} rot={-3} at={t.at('crawl space') + 6} />
+      <Note text="3 ft at its highest" x={130} y={360} size={72} rot={-3} at={a + 2} />
+      <Note text="almost 7 years" x={110} y={640} size={76} rot={-3} at={t.at('almost seven') - 2} />
+      <Note text="through a tiny hole," x={110} y={830} size={46} rot={-2} at={th - 2} color="#ffffff" />
+      <Note text="she watched her children play" x={130} y={910} size={46} rot={-2} at={th + 2} color="#ffffff" />
+      <Tag text="Harriet Jacobs, Incidents in the Life of a Slave Girl, 1861, pp. 173, 175 · Internet Archive" />
+    </AbsoluteFill>
   );
 };
 

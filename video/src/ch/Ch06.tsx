@@ -7,7 +7,7 @@ import words from '../../public/audio/ch06_sunup.words.json';
 import {clamp} from '../lib/anim';
 import {Highlight, JF, Note, Tag, useGFrame, usePal} from '../kit/Kit';
 import {DarkPaper, Sfx, WRITE} from '../kit/common';
-import {Gen, sizeOf, Underline} from '../kit/gt';
+import {Doc, Pic, sizeOf, Underline} from '../kit/gt';
 import {ChapterShell, chapterFrames, CropCard, Definition, LEAD, makeTimeline, type Narration, PhotoCard, Quote, type TL, useScene} from '../kit/shell';
 import {MASKS} from '../masks';
 
@@ -53,6 +53,7 @@ const Base: React.FC<{t: TL}> = ({t}) => {
 };
 
 /** Field gangs, and the day drawn as the sun's arc from sunup to sundown (and past it at harvest). */
+const FIELD = 'img/arch/cotton_field/picking_cotton_near_montgomery_lakin_c1860_left_frame.jpg';
 const Gangs: React.FC<{t: TL}> = ({t}) => {
   const g = useGFrame();
   const pal = usePal();
@@ -86,21 +87,41 @@ const Gangs: React.FC<{t: TL}> = ({t}) => {
       <Note text="sunup" x={250} y={965} size={48} rot={-2} at={t.at('sunup') - 2} />
       <Note text="sundown" x={1480} y={965} size={48} rot={-2} at={t.at('sundown') - 2} />
       <Note text="at harvest: even longer" x={1280} y={560} size={46} rot={-3} at={t.at('At harvest') - 2} color="#ffffff" />
+      <Doc src={FIELD} x={1330} y={70} w={430} rot={2} sepia={0.2} at={t.at('most enslaved') - 1} push={[t.at('most enslaved'), t.at('At the end')]} zoom={1.06} />
+      {g >= t.at('most enslaved') && <Tag text="Picking cotton near Montgomery, Alabama, stereograph, c. 1860, attributed to J. H. Lakin · Library of Congress" />}
     </AbsoluteFill>
   );
 };
 
-/** The daily weigh-in (painting). */
+/** The daily weigh-in, in Solomon Northup's words (Twelve Years a Slave, 1853, pp. 167–68). */
+const NP167 = 'img/arch/weighing_cotton/northup_twelve_years_p167_gin_house_weighed_1853.jpg';
+const NP168 = 'img/arch/weighing_cotton/northup_twelve_years_p168_after_weighing_1853.jpg';
 const WeighIn: React.FC<{t: TL}> = ({t}) => {
   const g = useGFrame();
+  const h = t.at('Hit your');
   return (
-    <Gen name="ch06_weighing_cotton" label="weighing cotton at day's end, Mississippi, c. 1850" a={t.at('At the end') - 1} b={t.at('Women worked')}>
-      <AbsoluteFill style={{background: 'linear-gradient(90deg, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.25) 45%, transparent 70%)'}} />
+    <AbsoluteFill>
+      <DarkPaper />
+      <Doc src={NP167} x={1240} y={60} w={560} rot={-1.5} at={t.at('At the end') - 1} push={[t.at('At the end'), h]} zoom={1.12} fx={760} fy={2200} marks={[
+        // "where the cotton is weighed." / "If it falls short in weight — if he has not performed the full task appointed him"
+        {box: [88, 2016, 945, 2080], pad: 6, at: t.at('weighed'), tint: true, noTrace: true},
+        {underline: [88, 945, 2084], at: t.at('weighed') + 2, seed: 61, width: 4},
+        {box: [88, 2310, 1400, 2378], pad: 6, at: t.at('Fall short'), tint: true, noTrace: true},
+        {box: [88, 2382, 1400, 2450], pad: 6, at: t.at('Fall short') + 3, tint: true, noTrace: true},
+      ]} />
+      <Doc src={NP168} x={1210} y={90} w={560} rot={2} at={h - 1} push={[h, t.at('Women worked')]} zoom={1.1} fx={760} fy={380} marks={[
+        // "And if he has exceeded it by ten or twenty pounds, in all probability his master will measure the next day's task accordingly."
+        {box: [322, 270, 1440, 335], pad: 6, at: h + 3, tint: true, noTrace: true},
+        {box: [133, 343, 1440, 408], pad: 6, at: h + 6, tint: true, noTrace: true},
+        {box: [133, 415, 740, 482], pad: 6, at: h + 9, tint: true, noTrace: true},
+      ]} />
       {g >= t.at('weighed') && <Highlight text="THE DAILY WEIGH-IN" x={110} y={90} size={84} at={t.at('weighed')} seed={63} rot={-2} />}
       <Note text="every person's cotton, every day" x={130} y={240} size={46} rot={-2} at={t.at("each person's") - 2} color="#ffffff" />
-      <Note text="fall short → whipped" x={130} y={780} size={56} rot={-2} at={t.at('Fall short') - 2} />
-      <Note text="hit your number → the number goes up" x={130} y={880} size={56} rot={-2} at={t.at('Hit your') - 2} />
-    </Gen>
+      <Note text="Solomon Northup, enslaved 12 years:" x={130} y={560} size={42} rot={-2} at={t.at("each person's") + 6} color="#ffffff" />
+      <Note text="fall short → whipped" x={130} y={760} size={54} rot={-2} at={t.at('Fall short') - 2} />
+      <Note text="hit your number → the number goes up" x={130} y={860} size={46} rot={-2} at={h - 2} />
+      <Tag text="Solomon Northup, Twelve Years a Slave, 1853, pp. 167–68 · Internet Archive" />
+    </AbsoluteFill>
   );
 };
 
@@ -143,15 +164,16 @@ const Rations: React.FC<{t: TL}> = ({t}) => (
   </AbsoluteFill>
 );
 
-/** The cabin (painting): an empty room. */
+/** The cabin: a surviving quarters room, photographed for the Historic American Buildings Survey. */
+const CABIN = 'img/arch/cabin_interior/mcleod_plantation_slave_quarters_interior_habs_1990.jpg';
 const Cabin: React.FC<{t: TL}> = ({t}) => (
-  <Gen name="ch06_cabin_interior" label="inside a one-room cabin, c. 1850" a={t.at('Families slept') - 1} b={t.at('Some enslaved people')}>
+  <Pic src={CABIN} tag="Slave quarters, McLeod Plantation, Charleston, S.C. · HABS photograph, 1990 · Library of Congress" a={t.at('Families slept') - 1} b={t.at('Some enslaved people')} z0={1.03} z1={1.1}>
     <AbsoluteFill style={{background: 'linear-gradient(180deg, rgba(0,0,0,0.5) 0%, transparent 30%, transparent 70%, rgba(0,0,0,0.55) 100%)'}} />
     <Note text="small wooden cabins" x={130} y={90} size={54} rot={-2} at={t.at('small wooden') - 2} />
-    <Note text="dirt floors" x={130} y={190} size={50} rot={-2} at={t.at('dirt floors') - 2} color="#ffffff" />
+    <Note text="often dirt floors" x={130} y={190} size={50} rot={-2} at={t.at('dirt floors') - 2} color="#ffffff" />
     <Note text="sometimes two families to a cabin" x={130} y={840} size={50} rot={-2} at={t.at('sometimes two') - 2} />
     <Note text="beds of straw and rags" x={130} y={930} size={50} rot={-2} at={t.at('beds of straw') - 2} color="#ffffff" />
-  </Gen>
+  </Pic>
 );
 
 /** House versus field. */

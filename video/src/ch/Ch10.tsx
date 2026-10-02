@@ -9,7 +9,7 @@ import {Arrow, Highlight, JF, Note, Tag, useGFrame, usePal} from '../kit/Kit';
 import {DarkPaper, Sfx, WRITE} from '../kit/common';
 import {type Cam, MapScene, Pin, PLACES} from '../kit/map';
 import {Bars, HBars} from '../kit/charts';
-import {Counter, cue, Doc, Gen, sizeOf, Underline} from '../kit/gt';
+import {Counter, cue, Doc, Pic, sizeOf, Underline} from '../kit/gt';
 import {ChapterShell, chapterFrames, CropCard, Definition, LEAD, makeTimeline, type Narration, Quote, type TL, useScene} from '../kit/shell';
 import {MASKS} from '../masks';
 import {ENSLAVED, VALUE_1860} from '../data/charts';
@@ -74,12 +74,14 @@ const Virginia: React.FC<{t: TL}> = ({t}) => {
   );
 };
 
-/** January 1832: two weeks of debate (painting). */
+/** January 1832: two weeks of debate, in the Capitol as engraved that very year. */
+const CAPITOL = 'img/arch/house_of_delegates/capitol_of_virginia_richmond_engraving_1831.jpg';
 const Debate: React.FC<{t: TL}> = ({t}) => (
-  <Gen name="ch10_house_of_delegates" label="Virginia House of Delegates, Richmond, January 1832" a={t.at('In January') - 1} b={t.at('Thomas')}>
+  <Pic src={CAPITOL} tag="Capitol of Virginia, Richmond, engraving, London, 1831 · New York Public Library" a={t.at('In January') - 1} b={t.at('Thomas')} fx={1893} fy={1480} z0={1.86} z1={1.98}>
+    <AbsoluteFill style={{background: 'linear-gradient(180deg, rgba(0,0,0,0.6) 0%, transparent 38%)'}} />
     <Note text="Jan. 1832" x={110} y={100} size={62} rot={-3} at={t.at('January') - 2} color="#ffffff" />
     <Note text="two weeks of debate" x={130} y={210} size={54} rot={-3} at={t.at('two weeks') - 2} />
-  </Gen>
+  </Pic>
 );
 
 /** Thomas Jefferson Randolph and gradual emancipation. */
@@ -347,13 +349,16 @@ const Tightened: React.FC<{t: TL}> = ({t}) => {
   );
 };
 
-/** The same darkened sky as ch09. */
+/** The same eclipse plate as ch09. */
+const SMITH = 'img/arch/eclipse/smith_illustrated_astronomy_eclipses_plate_1849.jpg';
+const SMITH_TAG = "Asa Smith, Smith's Illustrated Astronomy, 1849, Fig. 9: “Annular Eclipse of the Sun” · Internet Archive";
 const Sky: React.FC<{t: TL}> = ({t}) => (
-  <Gen name="ch01_eclipse" label="Southampton County, Virginia, February 1831: the eclipse" a={t.at('In February') - 1} b={t.at('And the tighter')}>
+  <Pic src={SMITH} tag={SMITH_TAG} a={t.at('In February') - 1} b={t.at('And the tighter')} fx={2766} fy={3562} z0={1.7} z1={1.9} bw="contrast(1.1) saturate(0.75) brightness(0.92)">
+    <AbsoluteFill style={{background: 'linear-gradient(180deg, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.5) 22%, transparent 40%, transparent 68%, rgba(0,0,0,0.7) 100%)'}} />
     <Note text="Feb. 1831: he saw a sign" x={110} y={100} size={54} rot={-3} at={t.at('saw a sign') - 2} color="#ffffff" />
     <Note text="Aug. 1831: the South saw one too" x={130} y={200} size={54} rot={-3} at={t.at('That August') - 2} />
     <Note text="they read it differently." x={130} y={870} size={60} rot={-3} at={t.at('They just') - 2} color="#ffffff" />
-  </Gen>
+  </Pic>
 );
 
 /** The last frame: the map of the states, dimming. No marks. */

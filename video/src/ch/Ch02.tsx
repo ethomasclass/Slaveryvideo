@@ -9,7 +9,7 @@ import {Arrow, Highlight, JF, Note, Tag, useGFrame, usePal} from '../kit/Kit';
 import {DarkPaper, Sfx, WRITE} from '../kit/common';
 import {type Cam, MapScene, PLACES, Region} from '../kit/map';
 import {Bars} from '../kit/charts';
-import {Counter, cue, sizeOf, Underline} from '../kit/gt';
+import {Counter, cue, Doc, sizeOf, Underline} from '../kit/gt';
 import {ChapterShell, chapterFrames, CropCard, LEAD, makeTimeline, type Narration, PhotoCard, type TL, useScene} from '../kit/shell';
 import {MASKS} from '../masks';
 import {ENSLAVED} from '../data/charts';
@@ -50,6 +50,8 @@ export const HeldNote: React.FC<{at: number; strike?: number; x?: number; y?: nu
 };
 
 /** 1790: the first census, one bar on the chart that chapter 4 grows. */
+const CENSUS = 'img/arch/census_1790/heads_of_families_1790_nc_population_summary.jpg';
+const ACT = 'img/arch/act_1807/act_prohibit_importation_of_slaves_1807_p1.jpg';
 const Rewind: React.FC<{t: TL}> = ({t}) => {
   const g = useGFrame();
   return (
@@ -58,10 +60,15 @@ const Rewind: React.FC<{t: TL}> = ({t}) => {
       <Note text="rewind about forty years" x={140} y={100} size={50} rot={-3} at={t.at('rewind') - 2} color="#ffffff" />
       {g >= t.at('1790') && <Highlight text="1790" x={140} y={220} size={140} at={t.at('1790')} seed={21} rot={-2} />}
       <Note text="the first U.S. census" x={560} y={500} size={56} rot={-3} at={t.at('first United') - 2} />
-      <Note text="counts about 700,000 enslaved people" x={580} y={620} size={50} rot={-3} at={t.at('700,000') - 2} color="#ffffff" />
+      <Note text="counts about 700,000" x={580} y={620} size={50} rot={-3} at={t.at('700,000') - 2} color="#ffffff" />
+      <Note text="enslaved people" x={600} y={700} size={50} rot={-3} at={t.at('700,000')} color="#ffffff" />
       {g >= t.at('700,000') - 6 && <Bars x={220} y={200} w={220} h={640} max={4.2e6} at={t.at('700,000') - 6} seed={4} bars={[{label: '1790', value: N1790, subject: true, show: '≈ 700,000'}]} />}
       <Counter year={1790} from={0} to={N1790} at={t.at('700,000')} />
-      {g >= t.at('700,000') && <Tag text="U.S. Census, 1790" />}
+      <Doc src={CENSUS} x={1330} y={290} w={420} rot={2} at={t.at('first United') - 1} push={[t.at('first United'), t.at('700,000') + 40]} zoom={1.25} fx={1250} fy={700} marks={[
+        // the "Slaves." column of the 1790 returns, by state (Census Bureau reprint, 1908: 2466 x 3367)
+        {box: [1950, 330, 2100, 1075], pad: 10, at: t.at('700,000'), tint: true, seed: 22, width: 4},
+      ]} />
+      {g >= t.at('first United') && <Tag text="Population of the United States as returned at the First Census, 1790 · Census Bureau reprint, 1908 · Internet Archive" />}
     </AbsoluteFill>
   );
 };
@@ -183,6 +190,12 @@ const Ban: React.FC<{t: TL}> = ({t}) => {
   return (
     <AbsoluteFill>
       <DarkPaper />
+      <Doc src={ACT} x={1180} y={110} w={600} rot={1.5} at={t.at('January') - 1} out={t.at('Cut off')} push={[t.at('January'), t.at('Cut off')]} zoom={1.15} fx={800} fy={560} marks={[
+        // "AN ACT to prohibit the importation of slaves ... from and after the first day of January ... one thousand eight hundred and eight" (1920 x 2131)
+        {box: [377, 512, 1640, 580], pad: 8, at: t.at('took effect'), tint: true, noTrace: true},
+        {box: [377, 586, 1293, 630], pad: 8, at: t.at('took effect') + 3, tint: true, noTrace: true},
+      ]} />
+      {g >= t.at('January') && g < t.at('Cut off') && <Tag text="An Act to Prohibit the Importation of Slaves, March 2, 1807 · National Archives" />}
       {g >= t.at('January') && <Highlight text="JAN. 1, 1808" x={140} y={110} size={110} at={t.at('January')} seed={25} rot={-2} />}
       <Note text="the ban takes effect" x={170} y={290} size={56} rot={-3} at={t.at('took effect') - 2} />
       <Note text="ships from overseas" x={170} y={500} size={52} rot={-3} at={t.at('Cut off') - 2} color="#ffffff" />

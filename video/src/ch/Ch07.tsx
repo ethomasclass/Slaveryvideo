@@ -8,7 +8,7 @@ import {clamp} from '../lib/anim';
 import {Highlight, JF, Note, Tag, useGFrame} from '../kit/Kit';
 import {DarkPaper, Sfx, WRITE} from '../kit/common';
 import {type Cam, MapScene, Pin, PLACES} from '../kit/map';
-import {Gen, sizeOf, Underline} from '../kit/gt';
+import {Doc, sizeOf, Underline} from '../kit/gt';
 import {ChapterShell, chapterFrames, CropCard, LEAD, makeTimeline, type Narration, Quote, type TL, useScene} from '../kit/shell';
 import {MASKS} from '../masks';
 
@@ -129,16 +129,26 @@ const Missouri: React.FC<{t: TL}> = ({t}) => {
   );
 };
 
-/** 1855: the cabin at night (painting). No image of Celia exists, and no person stands in for her. */
+/** 1855: the county's own indictment names her. No image of Celia exists, and no person stands in for her. */
+const INDICT = 'img/arch/celia_trial/celia_indictment_aug_1855.jpg';
 const Cabin: React.FC<{t: TL}> = ({t}) => (
-  <Gen name="ch07_empty_cabin_night" label="a cabin at night, Callaway County, Missouri, 1855" a={t.at('In 1855') - 1} b={t.at('At her trial')} z0={1.02} z1={1.06}>
-    <AbsoluteFill style={{background: 'linear-gradient(180deg, rgba(0,0,0,0.5) 0%, transparent 30%, transparent 65%, rgba(0,0,0,0.6) 100%)'}} />
+  <AbsoluteFill>
+    <DarkPaper />
+    <Doc src={INDICT} x={1200} y={80} w={560} rot={1.5} at={t.at('In 1855') - 1} push={[t.at('In 1855'), t.at('At her trial')]} zoom={1.1} fx={300} fy={450} marks={[
+      // 562 x 879 scan: "Celia otherwise Celia Newsom, a Slave" ... "with a large piece of wood"
+      {box: [62, 258, 540, 290], pad: 4, at: t.at('In 1855') + 8, tint: true, noTrace: true},
+      {box: [62, 291, 170, 308], pad: 4, at: t.at('In 1855') + 10, tint: true, noTrace: true},
+      {box: [372, 576, 540, 603], pad: 4, at: t.at('she hit'), tint: true, noTrace: true},
+      {box: [62, 606, 262, 636], pad: 4, at: t.at('she hit') + 2, tint: true, noTrace: true},
+    ]} />
     <Note text="1855" x={110} y={90} size={70} rot={-3} at={t.at('In 1855') - 2} color="#ffffff" />
     <Note text="pregnant again, she told him to stop" x={110} y={210} size={50} rot={-2} at={t.at('told him') - 2} />
     <Note text="he didn't." x={150} y={310} size={50} rot={-2} at={t.at("He didn't") - 2} />
-    <Note text="she struck him with a heavy stick. he died." x={110} y={880} size={50} rot={-2} at={t.at('she hit') - 2} />
-    <Note text="no image of Celia exists" x={1360} y={960} size={38} rot={-2} at={t.at('In 1855') + 20} color="#ffffff" />
-  </Gen>
+    <Note text="she struck him with a heavy stick." x={110} y={720} size={50} rot={-2} at={t.at('she hit') - 2} />
+    <Note text="he died." x={150} y={810} size={50} rot={-2} at={t.at('and he died') - 2} />
+    <Note text="no image of Celia exists" x={110} y={940} size={38} rot={-2} at={t.at('In 1855') + 20} color="#ffffff" />
+    <Tag text="State of Missouri v. Celia, a Slave: indictment, Callaway County Circuit Court, Aug. 1855 · via UMKC Famous Trials" />
+  </AbsoluteFill>
 );
 
 /** The defense: the statute's words. */

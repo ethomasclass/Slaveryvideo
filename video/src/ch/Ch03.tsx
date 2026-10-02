@@ -9,7 +9,7 @@ import {Arrow, Highlight, Loop, Note, Tag, useGFrame, usePal} from '../kit/Kit';
 import {DarkPaper, Sfx, WRITE} from '../kit/common';
 import {type Cam, MapScene, Pin, PLACES, type Pt, Region, Route} from '../kit/map';
 import {Bars, GREYS, SplitBar} from '../kit/charts';
-import {cue, Doc, Gen, sizeOf, Underline} from '../kit/gt';
+import {cue, Doc, sizeOf, Underline} from '../kit/gt';
 import {ChapterShell, chapterFrames, CropCard, Definition, LEAD, makeTimeline, type Narration, PhotoCard, type TL, useScene} from '../kit/shell';
 import {MASKS} from '../masks';
 import {COTTON_BALES_K, ENSLAVED, EXPORTS_1860} from '../data/charts';
@@ -65,15 +65,22 @@ const Inland: React.FC<{t: TL}> = ({t}) => {
   );
 };
 
-/** Sticky seeds, cleaned by hand: about a pound a day. */
+/** Sticky seeds, cleaned by hand: about a pound a day. The open boll on an 1815 botanical plate. */
+const SEED = 'img/arch/seeds_by_hand/cotton_plant_boll_botanical_register_1815.jpg';
 const Seeds: React.FC<{t: TL}> = ({t}) => {
   const pal = usePal();
   return (
-    <Gen name="ch03_seeds_by_hand" label="cleaning cotton seed by hand, Georgia, c. 1790" a={t.at("It's packed") - 1} b={t.at('Then in 1793')}>
+    <AbsoluteFill>
+      <DarkPaper />
+      <Doc src={SEED} x={640} y={190} w={800} rot={-1.5} sepia={0} at={t.at("It's packed") - 1} push={[t.at("It's packed"), t.at('Then in 1793')]} zoom={1.12} fx={2565} fy={2600} marks={[
+        // the opened boll, seeds bedded in the lint (3840 x 3130 plate)
+        {ellipse: [2565, 2600, 470, 420], at: t.at('sticky'), tint: true, seed: 31},
+      ]} />
       <Note text="packed with sticky green seeds" x={120} y={80} size={54} rot={-3} at={t.at('sticky') - 2} />
       <Note text="by hand: ≈ 1 lb / day" x={140} y={880} size={66} rot={-3} at={t.at('pound') - 4} color={pal.subject} />
       <Note text="never a big business" x={1140} y={890} size={56} rot={-3} at={t.at('never be') - 2} color="#ffffff" />
-    </Gen>
+      <Tag text="Sydenham Edwards, cotton (Gossypium), Botanical Register, pl. 84, 1815 · Biodiversity Heritage Library" />
+    </AbsoluteFill>
   );
 };
 
