@@ -203,7 +203,10 @@ const Market: React.FC<{t: TL}> = ({t}) => (
 const Families: React.FC<{t: TL}> = ({t}) => (
   <AbsoluteFill>
     <DarkPaper />
-    <PhotoCard src="img/ch04/slave_auction_richmond_1856.jpg" x={100} y={200} w={960} rot={-2} at={t.at('The law') - 1} filter="grayscale(1) contrast(1.25)" />
+    <Doc src="img/ch04/slave_auction_richmond_1856.jpg" x={124} y={224} w={912} rot={-2} sepia={0.1} at={t.at('The law') - 1} push={[t.at('The law'), t.at('Any day') + 30]} zoom={1.1} fx={320} fy={180} marks={[
+      // the auction block: auctioneer, the woman being sold, the platform (640 x 383 print); outline only
+      {box: [250, 72, 412, 268], pad: 6, at: t.at('marriages') + 2, seed: 31},
+    ]} />
     <Note text="the law didn't recognize" x={1150} y={160} size={46} rot={-3} at={t.at('The law') - 2} color="#ffffff" />
     <Note text="their marriages" x={1170} y={250} size={56} rot={-3} at={t.at('marriages') - 2} />
     <Note text="a husband" x={1190} y={420} size={54} rot={-3} at={t.at('husband') - 2} />
@@ -231,7 +234,10 @@ const Money: React.FC<{t: TL}> = ({t}) => {
   return (
     <AbsoluteFill>
       <DarkPaper />
-      <PhotoCard src="img/ch04/slave_trade_washington_1830.jpg" x={900} y={90} w={920} rot={2} at={t.at('To the people') - 1} />
+      <Doc src="img/ch04/slave_trade_washington_1830.jpg" x={922} y={112} w={876} rot={2} sepia={0.1} at={t.at('To the people') - 1} marks={[
+        // the coffle and its driver (1920 x 925): outlined, not washed, where the subject is people
+        {ellipse: [655, 480, 380, 310], at: t.at('They were money'), seed: 32},
+      ]} />
       <Note text="to their owners:" x={110} y={110} size={50} rot={-3} at={t.at('To the people') - 2} color="#ffffff" />
       <Note text="not only workers" x={130} y={220} size={56} rot={-3} at={t.at("weren't only") - 2} />
       <Note text="they were money" x={130} y={340} size={74} rot={-3} at={t.at('They were money') - 2} color={pal.subject} />

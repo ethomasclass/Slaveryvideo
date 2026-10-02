@@ -126,7 +126,10 @@ const Southampton: React.FC<{t: TL}> = ({t}) => {
 const Toll: React.FC<{t: TL}> = ({t}) => (
   <AbsoluteFill>
     <DarkPaper />
-    <PhotoCard src="img/ch01/horrid_massacre_woodcut_1831.jpg" x={140} y={190} w={720} rot={-2} at={t.at('Between 55') - 1} />
+    <Doc src="img/ch01/horrid_massacre_woodcut_1831.jpg" x={158} y={208} w={684} rot={-2} sepia={0.15} at={t.at('Between 55') - 1} marks={[
+      // the headline is the point: this is how white newspapers framed it (1280 x 1080 print)
+      {box: [178, 14, 1072, 66], pad: 8, at: t.at('Between 55') + 12, tint: true, seed: 21, width: 4},
+    ]} />
     <Note text="an 1831 woodcut:" x={150} y={800} size={40} rot={-2} at={t.at('Between 55') + 6} color="#ffffff" />
     <Note text="the story as white newspapers told it" x={150} y={865} size={40} rot={-2} at={t.at('Between 55') + 10} color="#ffffff" />
     <Note text="55–60 white people killed" x={1000} y={260} size={58} rot={-3} at={t.at('Between 55') - 2} color="#ffffff" />
