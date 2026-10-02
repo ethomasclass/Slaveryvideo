@@ -9,7 +9,7 @@ import {clamp} from '../lib/anim';
 import {JF, Highlight, Loop, Note, Tag, useGFrame, usePal} from '../kit/Kit';
 import {DarkPaper, Sfx, WRITE} from '../kit/common';
 import {type Cam, MapScene, Pin, PLACES} from '../kit/map';
-import {cue, Doc, Gen, sizeOf, Underline} from '../kit/gt';
+import {cue, Doc, Gen, sizeOf} from '../kit/gt';
 import {ChapterShell, chapterFrames, CropCard, LEAD, makeTimeline, type Narration, PhotoCard, Quote, type TL, useScene} from '../kit/shell';
 
 const N = words as Narration;
@@ -62,7 +62,8 @@ const Early: React.FC<{t: TL}> = ({t}) => {
   return (
     <AbsoluteFill>
       <DarkPaper />
-      <Doc src={CONF} x={180} y={100} w={460} at={t.at('Even as') - 1} rot={-2} push={[t.at('Even as'), t.at('He also had')]} zoom={1.08} fx={960} fy={900} />
+      <Doc src={CONF} x={180} y={100} w={460} at={t.at('Even as') - 1} rot={-2} push={[t.at('Even as'), t.at('He also had')]} zoom={1.08} fx={960} fy={900}
+        marks={[{box: [30, 804, 1570, 950], pad: 30, at: t.at('Even as') + 8, tint: true, seed: 92, width: 4}]} />
       <Note text="his story, as printed in 1831" x={800} y={120} size={44} rot={-3} at={t.at('Even as') + 2} color="#ffffff" />
       <Note text="seen as special, even as a kid" x={820} y={250} size={50} rot={-3} at={t.at('people around') - 2} />
       <Note text="learned to read so young" x={820} y={370} size={50} rot={-3} at={t.at('He learned') - 2} />
@@ -200,13 +201,8 @@ const Hiding: React.FC<{t: TL}> = ({t}) => (
 const Gray: React.FC<{t: TL}> = ({t}) => (
   <AbsoluteFill>
     <DarkPaper />
-    <Doc src={CONF} x={200} y={110} w={420} at={t.at('In jail') - 1} rot={1.5} push={[t.at('In jail'), t.at('But in it')]} zoom={1.1} fx={960} fy={1530}>
-      {(S) => {
-        const [x1, y] = S(420, 1730);
-        const [x2] = S(1500, 1730);
-        return <Underline x1={x1} x2={x2} y={y} at={t.at('Thomas Gray') + 4} seed={4} />;
-      }}
-    </Doc>
+    <Doc src={CONF} x={200} y={110} w={420} at={t.at('In jail') - 1} rot={1.5} push={[t.at('In jail'), t.at('But in it')]} zoom={1.1} fx={960} fy={1530}
+      marks={[{box: [290, 1610, 1340, 1690], pad: 28, at: t.at('Thomas Gray') + 2, tint: true, seed: 4, width: 4}]} />
     <Note text="in jail:" x={820} y={130} size={50} rot={-3} at={t.at('In jail') - 2} color="#ffffff" />
     <Note text="Thomas R. Gray, a white lawyer" x={840} y={240} size={50} rot={-3} at={t.at('Thomas Gray') - 2} />
     <Note text="published The Confessions of Nat Turner" x={840} y={340} size={46} rot={-3} at={t.at('published') - 2} />

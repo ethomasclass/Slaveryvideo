@@ -102,16 +102,17 @@ const Patent: React.FC<{t: TL}> = ({t}) => {
   return (
     <AbsoluteFill>
       <DarkPaper />
-      <Doc src={PAT} x={150} y={74} w={600} at={a - 1} rot={-1.5} push={[a, t.at("It's called")]} zoom={1.05} fx={1800} fy={3000}>
+      <Doc src={PAT} x={150} y={74} w={600} at={a - 1} rot={-1.5} push={[a, t.at("It's called")]} zoom={1.05} fx={1800} fy={3000} marks={[
+        // the crank, the toothed drum, the slotted breastwork: patent-drawing pixels (3840 x 5760)
+        {ellipse: [1818, 2246, 850, 610], at: t.at('crank') + 2, tint: true, seed: 5},
+        {ellipse: [2200, 3616, 670, 425], at: t.at('drum') + 2, tint: true, seed: 6},
+        {ellipse: [966, 4656, 580, 365], at: t.at('slots') + 2, tint: true, seed: 7},
+      ]}>
         {(S) => {
           const [c3x, c3y] = S(1818, 2246);
           const [c7x, c7y] = S(2200, 3616);
-          const [c11x, c11y] = S(966, 4656);
           return (
             <>
-              <Loop cx={c3x} cy={c3y} rx={140} ry={100} at={t.at('crank') + 2} seed={5} tilt={-4} />
-              <Loop cx={c7x} cy={c7y} rx={110} ry={70} at={t.at('drum') + 2} seed={6} tilt={3} />
-              <Loop cx={c11x} cy={c11y} rx={95} ry={60} at={t.at('slots') + 2} seed={7} tilt={-3} />
               <Arrow x1={880} y1={245} x2={c3x + 150} y2={c3y - 20} bow={20} at={t.at('crank') + 4} />
               <Arrow x1={880} y1={475} x2={c7x + 120} y2={c7y} bow={-20} at={t.at('drum') + 4} />
             </>

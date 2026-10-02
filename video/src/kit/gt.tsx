@@ -5,7 +5,7 @@ import React from 'react';
 import {AbsoluteFill, Img, interpolate, random, staticFile, useCurrentFrame} from 'remotion';
 import {IMG} from '../imgs';
 import {clamp} from '../lib/anim';
-import {JF, Tag, useGFrame, usePal} from './Kit';
+import {JF, PALETTES, Tag, useGFrame, usePal} from './Kit';
 import {DarkPaper} from './common';
 import type {MaskRef} from './maskref';
 import {hasFile, Photo} from './shell';
@@ -62,9 +62,76 @@ export const Gen: React.FC<{name: string; label: string; a: number; b: number; z
   );
 };
 
-/** A document or page on the desk: cream card, light sepia, pops on, then pushes in slowly toward (fx, fy). */
+/**
+ * A mark drawn ON a document, in the scan's own pixel coordinates, so it moves, zooms and tilts with the paper.
+ * box = loose hand-drawn rectangle; ellipse = hand-drawn loop; underline = a stroke under a line of text.
+ * `tint` lays the coral subject colour over the marked area (the masking effect), from `at` until `until`.
+ * `rot` tilts a box (degrees, about its centre) to follow handwriting that climbs across the page.
+ */
+export type DocMark = {at: number; box?: [number, number, number, number]; ellipse?: [number, number, number, number]; underline?: [number, number, number];
+  tint?: boolean; until?: number; pad?: number; seed?: number; width?: number; noTrace?: boolean; rot?: number};
+
+const markPath = (m: DocMark) => {
+  const j = (k: string) => (random(`dm${m.seed ?? 1}${k}`) - 0.5);
+  if (m.underline) {
+    const [x1, x2, y] = m.underline;
+    return Array.from({length: 10}, (_, i) => `${i ? 'L' : 'M'}${x1 + ((x2 - x1) * i) / 9},${y + j(`u${i}`) * 6 + i * 0.4}`).join(' ');
+  }
+  if (m.ellipse) {
+    const [cx, cy, rx, ry] = m.ellipse;
+    return Array.from({length: 40}, (_, i) => {
+      const a = -Math.PI * 0.6 + (i / 39) * Math.PI * 2 * 1.04;
+      const w = 1 + j(`e${i % 7}`) * 0.08;
+      return `${i ? 'L' : 'M'}${cx + rx * w * Math.cos(a)},${cy + ry * w * Math.sin(a)}`;
+    }).join(' ');
+  }
+  const [x0, y0, x1, y1] = m.box!;
+  const p = m.pad ?? 8;
+  const pts = [[x0 - p, y0 - p], [x1 + p, y0 - p], [x1 + p, y1 + p], [x0 - p, y1 + p], [x0 - p + 6, y0 - p - 4]];
+  return pts.map(([x, y], i) => `${i ? 'L' : 'M'}${x + j(`bx${i}`) * 8},${y + j(`by${i}`) * 8}`).join(' ');
+};
+
+const DocMarks: React.FC<{marks: DocMark[]; size: [number, number]; w: number; h: number}> = ({marks, size, w, h}) => {
+  const g = useGFrame();
+  const pal = usePal();
+  // the quiet chapters keep coral off the screen: their wash is a lighter teal
+  const quiet = pal === PALETTES.quiet;
+  const tc = quiet ? pal.mark : pal.subject;
+  const [om, oc] = quiet ? [0.45, 0.35] : [0.75, 0.5];
+  return (
+    <>
+      {marks.map((m, i) => {
+        if (!m.tint || (!m.box && !m.ellipse) || g < m.at + 2 || g >= (m.until ?? 1e7)) return null;
+        const o = interpolate(g, [m.at + 2, m.at + 8], [0, 1], clamp);
+        const r = m.box ? m.box : [m.ellipse![0] - m.ellipse![2], m.ellipse![1] - m.ellipse![3], m.ellipse![0] + m.ellipse![2], m.ellipse![1] + m.ellipse![3]];
+        const pad = m.box ? (m.pad ?? 8) * 0.5 : 0;
+        const st: React.CSSProperties = {position: 'absolute', left: 16 + ((r[0] - pad) / size[0]) * w, top: 16 + ((r[1] - pad) / size[1]) * h,
+          width: ((r[2] - r[0] + 2 * pad) / size[0]) * w, height: ((r[3] - r[1] + 2 * pad) / size[1]) * h, background: tc, borderRadius: m.ellipse ? '50%' : 6,
+          transform: m.rot ? `rotate(${m.rot}deg)` : undefined};
+        return (
+          <React.Fragment key={`t${i}`}>
+            <div style={{...st, mixBlendMode: 'multiply', opacity: om * o}} />
+            <div style={{...st, mixBlendMode: 'color', opacity: oc * o}} />
+          </React.Fragment>
+        );
+      })}
+      <svg style={{position: 'absolute', left: 16, top: 16, overflow: 'visible'}} width={w} height={h} viewBox={`0 0 ${size[0]} ${size[1]}`} preserveAspectRatio="none">
+        {marks.map((m, i) => {
+          if (g < m.at || m.noTrace) return null;
+          const p = interpolate(g, [m.at, m.at + (m.underline ? 8 : 12)], [0, 1], clamp);
+          const c = m.box ? [(m.box[0] + m.box[2]) / 2, (m.box[1] + m.box[3]) / 2] : [0, 0];
+          return <path key={i} d={markPath(m)} transform={m.rot && m.box ? `rotate(${m.rot} ${c[0]} ${c[1]})` : undefined} fill="none" stroke={pal.mark} strokeWidth={m.width ?? 5} vectorEffect="non-scaling-stroke" strokeLinejoin="round" strokeLinecap="round"
+            pathLength={1} strokeDasharray={1} strokeDashoffset={1 - p} />;
+        })}
+      </svg>
+    </>
+  );
+};
+
+/** A document or page on the desk: cream card, light sepia, pops on, then pushes in slowly toward (fx, fy).
+ *  `marks` draw on the paper itself (see DocMark). `children(S)` get a source→screen mapper (tilt included) for overlays off the paper. */
 export const Doc: React.FC<{src: string; x: number; y: number; w: number; at: number; rot?: number; push?: [number, number]; fx?: number; fy?: number; zoom?: number; sepia?: number;
-  children?: (S: (sx: number, sy: number) => number[]) => React.ReactNode}> = ({src, x, y, w, at, rot = 0, push, fx, fy, zoom = 1.25, sepia = 0.3, children}) => {
+  marks?: DocMark[]; children?: (S: (sx: number, sy: number) => number[]) => React.ReactNode}> = ({src, x, y, w, at, rot = 0, push, fx, fy, zoom = 1.25, sepia = 0.3, marks, children}) => {
   const frame = useCurrentFrame();
   const g = useGFrame();
   if (g < at) return null;
@@ -76,13 +143,23 @@ export const Doc: React.FC<{src: string; x: number; y: number; w: number; at: nu
   const oy = fy ?? size[1] / 2;
   const sc = w / size[0];
   // camera: zoom about the focus point, keeping it where it sits on screen at z = 1
-  const S = (sx: number, sy: number) => [x + ox * sc + (sx - ox) * sc * z, y + oy * sc + (sy - oy) * sc * z];
-  const [lx, ty] = S(0, 0);
+  const flat = (sx: number, sy: number) => [x + ox * sc + (sx - ox) * sc * z, y + oy * sc + (sy - oy) * sc * z];
+  const [lx, ty] = flat(0, 0);
+  const cw = w * z + 32;
+  const ch = h * z + 32;
+  const cx = lx - 16 + cw / 2;
+  const cy = ty - 16 + ch / 2;
+  const a = (rot * Math.PI) / 180;
+  const S = (sx: number, sy: number) => {
+    const [px, py] = flat(sx, sy);
+    return [cx + (px - cx) * Math.cos(a) - (py - cy) * Math.sin(a), cy + (px - cx) * Math.sin(a) + (py - cy) * Math.cos(a)];
+  };
   return (
     <>
-      <div style={{position: 'absolute', left: lx - 16, top: ty - 16, width: w * z + 32, height: h * z + 32, background: '#f4efe6', boxShadow: '0 18px 34px rgba(0,0,0,0.6)',
+      <div style={{position: 'absolute', left: lx - 16, top: ty - 16, width: cw, height: ch, background: '#f4efe6', boxShadow: '0 18px 34px rgba(0,0,0,0.6)',
         transform: `scale(${0.6 + 0.4 * k}) rotate(${rot}deg)`, opacity: Math.min(1, k * 2)}}>
         <Img src={staticFile(src)} style={{position: 'absolute', left: 16, top: 16, width: w * z, height: h * z, filter: `grayscale(1) sepia(${sepia}) contrast(1.15)`}} />
+        {marks && k >= 1 && <DocMarks marks={marks} size={size} w={w * z} h={h * z} />}
       </div>
       {k >= 1 && children?.(S)}
     </>

@@ -4,11 +4,11 @@ import React from 'react';
 import {AbsoluteFill, Audio, interpolate, Sequence, staticFile, useCurrentFrame} from 'remotion';
 import words from '../../public/audio/ch01_cold_open.words.json';
 import {clamp} from '../lib/anim';
-import {Arrow, Finish, Highlight, JF, Loop, Note, PALETTES, PaletteCtx, StepCtx, Tag, useGFrame, usePal} from '../kit/Kit';
+import {Arrow, Finish, Highlight, JF, Note, PALETTES, PaletteCtx, StepCtx, Tag, useGFrame, usePal} from '../kit/Kit';
 import {DarkPaper, MapView, Sfx, WRITE} from '../kit/common';
 import {ChannelIntro, INTRO_FRAMES} from '../kit/Intro';
 import {type Cam, MapScene, Pin, PLACES} from '../kit/map';
-import {Doc, Underline} from '../kit/gt';
+import {Doc} from '../kit/gt';
 import {makeTimeline, type Narration, PhotoCard, type TL, useScene} from '../kit/shell';
 import {DATES, SUBTITLE, TITLE} from '../project';
 
@@ -28,12 +28,12 @@ const Notice: React.FC<{t: TL}> = ({t}) => {
   return (
     <AbsoluteFill>
       <DarkPaper />
-      <Doc src={P1} x={170} y={170} w={600} at={2} rot={-2} push={[0, t.at('On the second')]} zoom={1.06} fx={300} fy={500}>
-        {(S) => {
-          const [sx, sy] = S(430, 640);
-          return <Loop cx={sx} cy={sy} rx={150} ry={46} at={t.at('signs')} seed={3} tilt={-4} />;
-        }}
-      </Doc>
+      <Doc src={P1} x={170} y={170} w={600} at={2} rot={-2} push={[0, t.at('On the second')]} zoom={1.06} fx={300} fy={400} marks={[
+        // measured on the 600 x 726 scan: the signature, the reward line, "the slave Nat"
+        {ellipse: [406, 596, 174, 50], at: t.at('signs'), tint: true, seed: 3},
+        {box: [44, 235, 352, 262], rot: -4.5, pad: 6, at: t.at('500') - 3, tint: true, seed: 4},
+        {box: [192, 90, 312, 110], pad: 4, at: t.at('named'), tint: true, seed: 5},
+      ]} />
       {g >= t.at('September') && <Highlight text="SEPT. 17, 1831" x={880} y={150} size={92} at={t.at('September')} seed={5} rot={-2} />}
       <Note text="Richmond, Virginia" x={910} y={320} size={52} rot={-3} at={t.at('Richmond') - 2} color="#ffffff" />
       <Note text="the governor's signature" x={880} y={760} size={44} rot={-3} at={t.at('signs')} />
@@ -57,10 +57,21 @@ const Description: React.FC<{t: TL}> = ({t}) => {
   return (
     <AbsoluteFill>
       <DarkPaper />
-      <Doc src={P2} x={150} y={110} w={660} at={1} rot={1.5} push={[0, t.at("It's the closest")]} zoom={1.08} fx={300} fy={140} />
-      <Note text="page 2:" x={900} y={130} size={48} rot={-3} at={t.at('On the second')} color="#ffffff" />
-      {lines.map(([cue, text], i) => <Note key={cue} text={text} x={930} y={240 + i * 118} size={54} rot={-3} at={t.at(cue) - 2} />)}
-      {lines.map(([cue], i) => <Underline key={cue} x1={930} x2={1560} y={318 + i * 118} at={t.at(cue) + 4} seed={i + 1} width={3} />)}
+      {/* each phrase of the description, measured on the 600 x 759 scan: traced as it is read, tinted while it is being read */}
+      <Doc src={P2} x={150} y={110} w={600} at={1} rot={1.5} push={[0, t.at("It's the closest")]} zoom={1.15} fx={300} fy={120} marks={[
+        {box: [104, 60, 348, 86], at: t.at('Between 30'), tint: true, until: t.at("Five feet"), noTrace: true},
+        {underline: [108, 345, 86], at: t.at('Between 30') + 2, seed: 11, width: 4},
+        {box: [348, 58, 548, 86], at: t.at('Five feet'), tint: true, until: t.at("Broad"), noTrace: true},
+        {underline: [350, 545, 86], at: t.at('Five feet') + 2, seed: 12, width: 4},
+        {box: [318, 106, 472, 128], at: t.at('Broad'), tint: true, until: t.at("Large"), noTrace: true},
+        {underline: [322, 468, 128], at: t.at('Broad') + 2, seed: 13, width: 4},
+        {box: [143, 132, 216, 150], at: t.at('Large'), tint: true, until: t.at("Walks"), noTrace: true},
+        {underline: [146, 213, 150], at: t.at('Large') + 2, seed: 14, width: 4},
+        {box: [97, 152, 324, 172], at: t.at('Walks'), tint: true, until: t.at("It's the closest"), noTrace: true},
+        {underline: [100, 320, 172], at: t.at('Walks') + 2, seed: 15, width: 4},
+      ]} />
+      <Note text="page 2:" x={940} y={130} size={48} rot={-3} at={t.at('On the second')} color="#ffffff" />
+      {lines.map(([cue, text], i) => <Note key={cue} text={text} x={980} y={240 + i * 118} size={54} rot={-3} at={t.at(cue) - 2} />)}
       <Tag text={PTAG} />
     </AbsoluteFill>
   );
