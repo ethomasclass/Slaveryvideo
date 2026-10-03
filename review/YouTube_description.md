@@ -61,6 +61,6 @@ slavery in the old south, cotton south, nat turner, nat turner rebellion, cotton
 
 - **Altered or synthetic content: Yes.** The narration is an AI voice clone and the music is AI-generated. There are no AI images: every visual is a sourced historical image with an on-screen source tag.
 - **Category:** Education.
-- **Thumbnail:** `video/renders/thumbnails/Grip_Tighter_A.png` (alternate: `Grip_Tighter_B.png`).
+- **Thumbnail:** `video/renders/thumbnails/Grip_Tighter_B.png` ("SLAVERY WAS SUPPOSED TO FADE... then came cotton."; alternate: `Grip_Tighter_A.png`).
 - **Video file:** `Grip_Tighter_1080p.mp4` (the 1080p master, mastered to −14 LUFS).
 - **Audience:** not made for kids (it covers violence and sexual assault, stated plainly but not shown).
