@@ -177,7 +177,7 @@ const Body: React.FC = () => {
 };
 
 export const Ch05: React.FC = () => (
-  <ChapterShell n={N} audio="audio/ch05_pyramid.wav" lead={LEAD} music={[{src: cue('pyramid', 'j_cold_open'), volume: 0.13}]}>
+  <ChapterShell n={N} audio="audio/ch05_pyramid.wav" lead={LEAD} music={[{src: cue('pyramid', 'j_cold_open'), volume: 0.17}]}>
     <Body />
   </ChapterShell>
 );

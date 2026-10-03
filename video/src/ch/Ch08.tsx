@@ -344,7 +344,7 @@ const Body: React.FC = () => {
 };
 
 export const Ch08: React.FC = () => (
-  <ChapterShell n={N} audio="audio/ch08_world_outside.wav" lead={LEAD} quiet music={[{src: cue('world_outside', 'r_dix'), volume: 0.12}]}>
+  <ChapterShell n={N} audio="audio/ch08_world_outside.wav" lead={LEAD} quiet music={[{src: cue('world_outside', 'r_dix'), volume: 0.14}]}>
     <Body />
   </ChapterShell>
 );

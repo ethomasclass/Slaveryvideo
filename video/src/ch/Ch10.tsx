@@ -19,6 +19,7 @@ export const CH10_FRAMES = chapterFrames(N, LEAD);
 const T0 = makeTimeline(N, 30);
 /** The hand-off from the grip cue to r_ending, so r_ending's last dark chord (~54 s in) lands under "the whole country came to tearing apart". */
 const XF = T0.at('Then the cotton') - 3;
+const GRIP_AT = 390;
 
 const BONE = '#EDE7DC';
 const MAPTAG = 'Samuel Augustus Mitchell, Map of the United States, 1836 · Library of Congress';
@@ -415,8 +416,9 @@ const Body: React.FC = () => {
   return (
     <>
       {scene}
-      <Sequence durationInFrames={XF + 30} layout="none">
-        <Audio src={staticFile(cue('grip', 'r_nativism'))} volume={(f) => interpolate(f, [0, 20, XF - 10, XF + 25], [0, 0.12, 0.12, 0], clamp)} />
+      {/* grip.mp3 runs 70 s: start it 13 s in so its closing chord lands on the restated question, just before r_ending takes over at XF */}
+      <Sequence from={GRIP_AT} durationInFrames={XF - GRIP_AT + 30} layout="none">
+        <Audio src={staticFile(cue('grip', 'r_nativism'))} volume={(f) => interpolate(f, [0, 20, XF - GRIP_AT - 10, XF - GRIP_AT + 25], [0, 0.15, 0.15, 0], clamp)} />
       </Sequence>
       {cuts.slice(1).map(([f], i) => <Sfx key={i} at={f} src="sfx/whoosh.wav" volume={0.2} />)}
       <Sfx at={at('some lawmakers')} src="sfx/tick.wav" volume={0.45} />
